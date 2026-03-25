@@ -1,0 +1,40 @@
+# build artifacts
+build/
+*/build/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+compile_commands.json
+*.o
+*.a
+*.so
+*.log
+*.db
+*.sqlite
+
+# SoftHSM / local runtime
+softhsm-tokens/
+softhsm2.conf
+
+# keys / certs / signatures / local test artifacts
+*.pem
+*.der
+*.csr
+*.key
+*.bin
+signature*
+certificate*
+private_key*
+public_key*
+pubkey*
+data.txt
+data.sha256
+random.bin
+
+# local sources / downloads
+openssl-3.0.0/
+openssl-3.0.0.tar.gz
+
+# misc
+__pycache__/

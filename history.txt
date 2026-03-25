@@ -1,0 +1,304 @@
+    1  su
+    2  ifconfig
+    3  sudo apt install net-tools
+    4  ifconfig
+    5  sudo apt install ubuntu-desktop
+    6  sudo apt-get update
+    7  sudo apt install ubuntu-desktop
+    8  restart
+    9  sudo apt-get update
+   10  sudo apt-get install opencryptoki
+   11  sudo apt-get update
+   12  sudo apt-get install opencryptoki
+   13  sudo groupadd -f pkcs11
+   14  sudo usermod -a -G pkcs11 $USER
+   15  sudo pkcsslotd
+   16  ./bootstrap.sh
+   17  ./configure
+   18  make
+   19  sudo make install
+   20  pkcs11-tool --version
+   21  sudo apt install opensc
+   22  pkcs11-tool --version
+   23  pkcs11-tool --module /usr/local/lib/softhsm/libsofthsm2.so -list-slots
+   24  sudo systemctl start opencryptoki
+   25  pkcs11-tool --version
+   26  sudo systemctl status opencryptoki
+   27  sudo systemctl status pkcsslotd
+   28  ls /usr/lib/x86_64-linux-gnu/opencryptoki/
+   29  sudo systemctl status pkcsslotd
+   30  sudo groupadd pkcs11 and sudo usermod -a -G pkcs11 $USER
+   31  sudo usermod -a -G pkcs11 $USER
+   32  sudo systemctl start pkcsslotd
+   33  pkcsconf -t
+   34  [200~sudo systemctl status pkcsslotd
+   35  sudo systemctl status pkcsslotd
+   36  history 
+   37  pkcs11-tool --module /usr/local/lib/softhsm/libsofthsm2.so --list-slots
+   38  softhsm2-util --init-token --slot 0 --label "MyToken"
+   39  sudo apt install softhsm2
+   40  softhsm2-util --init-token --slot 0 --label "MyToken"
+   41  find / -name libsofthsm2.so
+   42  sudo find / -name libsofthsm2.so
+   43  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --list-slots
+   44  sudo nano /etc/softhsm/softhsm2.conf
+   45  history 
+   46  sudo systemctl status pkcsslotd
+   47  sudo systemctl start pkcsslotd
+   48  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --list-slots
+   49  sudo nano /etc/softhsm/softhsm2.conf
+   50  sudo mkdir -p /var/lib/softhsm/tokens/
+   51  sudo chown -R $(whoami):$(whoami) /var/lib/softhsm/tokens/
+   52  log.level = DEBUG
+   53  Dsudo nano /etc/softhsm/softhsm2.conf
+   54  sudo nano /etc/softhsm/softhsm2.conf
+   55  sudo systemctl status pkcsslotd
+   56  history 
+   57  gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing' && gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'nothing' && gsettings set org.gnome.desktop.session idle-delay 0 && systemd-inhibit --what=idle:sleep --why="Keep VM running" sleep infinity &
+   58  history
+   59  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --list-slots
+   60  nano hsm_test.c
+   61  chmod +x hsm_test.c
+   62  gcc -o hsm_test hsm_test.c -lsofthsm2 -ldl
+   63  nano hsm_test.c
+   64  chmod +x hsm_test.c
+   65  gcc -o hsm_test hsm_test.c -lsofthsm2 -ldl
+   66  sudo apt-get update
+   67  sudo apt-get install libsofthsm2-dev
+   68  gcc -o hsm_test hsm_test.c -I/usr/include/softhsm2 -lsofthsm2 -ldl
+   69  nano hsm_test.c
+   70  gcc -o hsm_test hsm_test.c -I/usr/include/softhsm2 -lsofthsm2 -ldl
+   71  nano hsm_test.c
+   72  history 
+   73  softhsm2-util --show-slots
+   74  slot 681926716
+   75  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 681926716   --list-objects
+   76  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 681926716   --login   --pin 1234   --list-objects
+   77  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 681926716   --login   --pin    --list-objects
+   78  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 681926716   --login   --pin 1234   --list-objects
+   79  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 1317106478   --login   --pin 1234   --list-objects
+   80  echo "HSM firmware path test" > data.txt
+   81  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 1317106478   --login   --pin 1234   --sign   --mechanism RSA-PKCS   --input-file data.txt   --output-file signature.bin   --type privkey
+   82  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 1317106478   --login   --pin 1234   --read-object   --type pubkey   --output-file pubkey.der
+   83  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 1317106478   --login   --pin 1234   --list-objects --verbose
+   84  qcttl1@netqc:~$ pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 1317106478   --login   --pin 1234   --list-objects --verbose
+   85  Private Key Object; RSA 
+   86  Public Key Object; RSA 2048 bits
+   87  qcttl1@netqc:~$ 
+   88  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 1317106478   --login   --pin 1234   --delete-object   --type privkey
+   89  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 1317106478   --login   --pin 1234   --list-objects --verbose --object-index
+   90  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 1317106478   --login   --pin 1234   --list-objects --verbose --show-object-index
+   91  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 1317106478   --login   --pin 1234   --list-objects --verbose --show-object-index
+   92  softhsm2-util --delete-token --slot 1317106478
+   93  softhsm2-util --init-token --free --label FirmwareHSM
+   94  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 1336792096   --login   --pin 1234   --keypairgen   --key-type rsa:2048   --id 10   --label FirmwareKey
+   95  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 1336792096   --login   --pin 1234   --list-objects --verbose
+   96  echo "HSM firmware simulation test" > data.txt
+   97  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 1336792096   --login   --pin 1234   --sign   --mechanism RSA-PKCS   --input-file data.txt   --output-file signature.bin   --id 10
+   98  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 1336792096   --login   --pin 1234   --read-object   --type pubkey   --id 10   --output-file pubkey.der
+   99  openssl rsa -pubin -inform DER -in pubkey.der -out pubkey.pem
+  100  openssl dgst -sha256 -verify pubkey.pem -signature signature.bin data.txt
+  101  openssl dgst -sha256 -binary data.txt > data.sha256
+  102  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 1336792096   --login   --pin 1234   --sign   --mechanism RSA-PKCS   --input-file data.sha256   --output-file signature.bin   --id 10
+  103  openssl rsautl -verify -inkey pubkey.pem -in signature.bin -raw | xxd
+  104  openssl pkeyutl   -verify   -inkey pubkey.pem   -pubin   -in signature.bin   -rawin   -out verified.sha256
+  105  softhsm2-util --init-token --free --label FirmwareHSM
+  106  softhsm2-util --show-slots
+  107  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot <SLOT_ID> --login --pin 1234 --keypairgen --key-type rsa:2048 --id 10 --label FirmwareKey
+  108  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot <SLOT_ID> --login --pin 1234 --list-objects --verbose
+  109  echo "HSM firmware simulation test" > data.txt
+  110  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot <SLOT_ID> --login --pin 1234 --sign --mechanism SHA256-RSA-PKCS --input-file data.txt --output-file signature.bin --id 10
+  111  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot <SLOT_ID> --login --pin 1234 --read-object --type pubkey --id 10 --output-file pubkey.der
+  112  openssl rsa -pubin -inform DER -in pubkey.der -out pubkey.pem
+  113  openssl dgst -sha256 -verify pubkey.pem -signature signature.bin data.txt
+  114  # 1️⃣ Initialize token (already done)
+  115  softhsm2-util --init-token --free --label FirmwareHSM
+  116  # 2️⃣ Generate RSA keypair in HSM
+  117  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 1751470552   --login   --pin 1234   --keypairgen   --key-type rsa:2048   --id 10   --label FirmwareKey
+  118  # 3️⃣ Verify key objects
+  119  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 1751470552   --login   --pin 1234   --list-objects --verbose
+  120  # 4️⃣ Prepare data
+  121  echo "HSM firmware simulation test" > data.txt
+  122  # 5️⃣ Sign data using SHA-256 digest with PKCS#1 v1.5
+  123  openssl dgst -sha256 -binary data.txt > data.sha256
+  124  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 1751470552   --login   --pin 1234   --sign   --mechanism RSA-PKCS   --input-file data.sha256   --output-file signature.bin   --id 10
+  125  # 6️⃣ Export public key
+  126  pkcs11-tool   --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so   --slot 1751470552   --login   --pin 1234   --read-object   --type pubkey   --id 10   --output-file pubkey.der
+  127  # 7️⃣ Convert DER → PEM
+  128  openssl rsa -pubin -inform DER -in pubkey.der -out pubkey.pem
+  129  # 8️⃣ Verify signature correctly
+  130  openssl pkeyutl -verify -pubin -inkey pubkey.pem -in data.sha256 -sigfile signature.bin -pkeyopt digest:sha256
+  131  sudo nano hsm_sign_verify.sh
+  132  chmod +x hsm_sign_verify.sh
+  133  sudo chmod +x hsm_sign_verify.sh
+  134  ./hsm_sign_verify.sh data.txt
+  135  chmod: changing permissions of 'hsm_sign_verify.sh': Operation not permitted
+  136  qcttl1@netqc:~$ sudo chmod +x hsm_sign_verify.sh
+  137  qcttl1@netqc:~$ ./hsm_sign_verify.sh data.txt
+  138  error: Private key not found
+  139  Aborting.
+  140  error: object not found
+  141  Aborting.
+  142  writing RSA key
+  143  Can't open signature file data.txt.sig
+  144  40E7138F8E780000:error:80000002:system library:BIO_new_file:No such file or directory:../crypto/bio/bss_file.c:67:calling fopen(data.txt.sig, rb)
+  145  40E7138F8E780000:error:10000080:BIO routines:BIO_new_file:no such file:../crypto/bio/bss_file.c:75:
+  146  File signed and verified successfully (if no errors shown)
+  147  qcttl1@netqc:~$ 
+  148  softhsm2-util --init-token --slot 80451484 --label FirmwareHSM && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --keypairgen --key-type rsa:2048 --id 10 --label FirmwareKey && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --list-objects --verbose && echo "HSM firmware simulation test" > data.txt && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --sign --mechanism RSA-PKCS --input-file data.txt --output-file signature.bin --id 10 && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --read-object --type pubkey --id 10 --output-file pubkey.der && openssl rsa -pubin -inform DER -in pubkey.der -out pubkey.pem && openssl dgst -sha256 -verify pubkey.pem -signature signature.bin data.txt
+  149  # Initialize HSM token (skip if already initialized)
+  150  softhsm2-util --init-token --slot 80451484 --label FirmwareHSM
+  151  # Generate RSA key pair on the token
+  152  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --keypairgen --key-type rsa:2048 --id 10 --label FirmwareKey
+  153  # List objects to confirm key pair generation
+  154  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --list-objects --verbose
+  155  # Prepare the data and hash it using sha256
+  156  echo "HSM firmware simulation test" > data.txt
+  157  openssl dgst -sha256 -out data.sha256 data.txt
+  158  # Sign the data's hash using the private key
+  159  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --sign --mechanism RSA-PKCS --input-file data.sha256 --output-file signature.bin --id 10
+  160  # Export the public key for verification
+  161  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --read-object --type pubkey --id 10 --output-file pubkey.der
+  162  # Convert public key from DER format to PEM format for verification
+  163  openssl rsa -pubin -inform DER -in pubkey.der -out pubkey.pem
+  164  # Verify the signature using the public key and the original data
+  165  openssl dgst -sha256 -verify pubkey.pem -signature signature.bin data.txt
+  166  # Step 1: Initialize the HSM token (skip if already done)
+  167  softhsm2-util --init-token --slot 80451484 --label FirmwareHSM
+  168  # Step 2: Generate RSA Key Pair on the token
+  169  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --keypairgen --key-type rsa:2048 --id 10 --label FirmwareKey
+  170  # Step 3: List objects to confirm key pair generation
+  171  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --list-objects --verbose
+  172  # Step 4: Prepare the data (HSM firmware simulation test) and hash it using SHA256
+  173  echo "HSM firmware simulation test" > data.txt
+  174  openssl dgst -sha256 -out data.sha256 data.txt  # Hash the data
+  175  # Step 5: Sign the hash (data.sha256) using the private key on the HSM
+  176  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --sign --mechanism RSA-PKCS --input-file data.sha256 --output-file signature.bin --id 10
+  177  # Step 6: Export the public key for verification
+  178  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --read-object --type pubkey --id 10 --output-file pubkey.der
+  179  # Step 7: Convert the public key from DER to PEM format
+  180  openssl rsa -pubin -inform DER -in pubkey.der -out pubkey.pem
+  181  # Step 8: Verify the signature using the public key (verify signature on the original data file)
+  182  openssl dgst -sha256 -verify pubkey.pem -signature signature.bin data.txt
+  183  echo "HSM firmware simulation test" > data.txt
+  184  openssl dgst -sha256 -out data.sha256 data.txt
+  185  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --keypairgen --key-type rsa:2048 --id 10 --label FirmwareKey
+  186  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --sign --mechanism RSA-PKCS --input-file data.sha256 --output-file signature.bin --id 10
+  187  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --read-object --type pubkey --id 10 --output-file pubkey.der
+  188  openssl rsa -pubin -inform DER -in pubkey.der -out pubkey.pem
+  189  openssl dgst -sha256 -verify pubkey.pem -signature signature.bin data.txt
+  190  # Initialize HSM token (skip if already initialized)
+  191  softhsm2-util --init-token --slot 80451484 --label FirmwareHSM && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --keypairgen --key-type rsa:2048 --id 10 --label FirmwareKey && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --list-objects --verbose && echo "HSM firmware simulation test" > data.txt && openssl dgst -sha256 -out data.sha256 data.txt && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --sign --mechanism RSA-PKCS --input-file data.sha256 --output-file signature.bin --id 10 && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --read-object --type pubkey --id 10 --output-file pubkey.der && openssl rsa -pubin -inform DER -in pubkey.der -out pubkey.pem && openssl dgst -sha256 -verify pubkey.pem -signature signature.bin data.txt
+  192  # Initialize HSM token (skip if already initialized)
+  193  softhsm2-util --init-token --slot 80451484 --label FirmwareHSM && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --keypairgen --key-type EC:prime256v1 --id 10 --label FirmwareKey && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --list-objects --verbose && echo "HSM firmware simulation test" > data.txt && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --sign --mechanism ECDSA --input-file data.txt --output-file signature.bin --id 10 && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --read-object --type pubkey --id 10 --output-file pubkey.der && openssl ec -pubin -inform DER -in pubkey.der -out pubkey.pem && openssl dgst -sha256 -verify pubkey.pem -signature signature.bin data.txt
+  194  # Step 1: Initialize the HSM token (skip if already initialized)
+  195  softhsm2-util --init-token --slot 80451484 --label FirmwareHSM && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --keypairgen --key-type EC:prime256v1 --id 10 --label FirmwareKey && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --list-objects --verbose && echo "HSM firmware simulation test" > data.txt && openssl dgst -sha256 -out data.sha256 data.txt && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --sign --mechanism ECDSA --input-file data.sha256 --output-file signature.bin --id 10 && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --read-object --type pubkey --id 10 --output-file pubkey.der && openssl ec -pubin -inform DER -in pubkey.der -out pubkey.pem && openssl dgst -sha256 -verify pubkey.pem -signature signature.bin data.txt
+  196  # Step 1: Initialize the HSM token (skip if already initialized)
+  197  softhsm2-util --init-token --slot 80451484 --label FirmwareHSM && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --keypairgen --key-type EC:prime256v1 --id 10 --label FirmwareKey && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --list-objects --verbose && echo "HSM firmware simulation test" > data.txt && openssl dgst -sha256 -out data.sha256 data.txt && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --sign --mechanism ECDSA --input-file data.sha256 --output-file signature.bin --id 10 && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --read-object --type pubkey --id 10 --output-file pubkey.der && openssl ec -pubin -inform DER -in pubkey.der -out pubkey.pem && openssl dgst -sha256 -verify pubkey.pem -signature signature.bin data.txt
+  198  # Step 1: Initialize the HSM token (skip if already initialized)
+  199  softhsm2-util --init-token --slot 80451484 --label FirmwareHSM && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --keypairgen --key-type EC:prime256v1 --id 10 --label FirmwareKey && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --list-objects --verbose && echo "HSM firmware simulation test" > data.txt && openssl dgst -sha256 -out data.sha256 data.txt && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --sign --mechanism ECDSA --input-file data.sha256 --output-file signature.bin --id 10 && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --read-object --type pubkey --id 10 --output-file pubkey.der && openssl ec -pubin -inform DER -in pubkey.der -out pubkey.pem && openssl dgst -sha256 -verify pubkey.pem -signature signature.bin data.txt
+  200  history 
+  201  pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot <slot_id> --login --pin 1234 --read-object --type pubkey --id 10 --output-file pubkey.der
+  202  history
+  203  doskey /history > history.txt
+  204  history -w cmdHistory.txt
+  205  ls
+  206  sudo nano history.txt 
+  207  less history.txt 
+  208  history > history.txt
+  209  less history.txt 
+  210  ls
+  211  less pubkey.pem
+  212  rm cmdHistory.txt 
+  213  ls
+  214  less pubkey.der
+  215  softhsm2-util --init-token --slot 80451484 --label FirmwareHSM && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --keypairgen --key-type EC:prime256v1 --id 10 --label FirmwareKey && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --list-objects --verbose && echo "HSM firmware simulation test" > data.txt && openssl dgst -sha256 -out data.sha256 data.txt && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --sign --mechanism ECDSA --input-file data.sha256 --output-file signature.bin --id 10 && pkcs11-tool --module /usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so --slot 80451484 --login --pin 1234 --read-object --type pubkey --id 10 --output-file pubkey.der && openssl ec -pubin -inform DER -in pubkey.der -out pubkey.pem && openssl dgst -sha256 -verify pubkey.pem -signature signature.bin data.txt
+  216  sudo apt install dpdk
+  217  sudo apt update 
+  218  sudo apt-get install dpdk dpdk-dev libdpdk-dev dpdk-igb-uio-dkms
+  219  sudo apt-get install dpdk-igb-uio-dkms
+  220  sudo apt-get install dpdk dpdk-dev libdpdk-dev
+  221  ls
+  222  cd Downloads/
+  223  ls
+  224  rm dc22-01172026.docx
+  225  rm DC22-01172026.docx
+  226  ls
+  227  cd..
+  228  cd ~
+  229  cd ~/Downloads
+  230  mkdir -p ~/Applications
+  231  mv NAME.AppImage ~/Applications/cursor.AppImage
+  232  # Check if curl is installed, if not, install it
+  233  if ! command -v curl &> /dev/null; then     echo "curl is not installed. Installing...";     sudo apt-get update;     sudo apt-get install -y curl; fi
+  234  # URLs for Cursor AppImage and Icon
+  235  CURSOR_URL="https://downloader.cursor.sh/linux/appImage/x64"
+  236  ICON_URL="https://raw.githubusercontent.com/rahuljangirwork/copmany-logos/refs/heads/main/cursor.png"
+  237  # Paths for installation
+  238  APPIMAGE_PATH="/opt/cursor.appimage"
+  239  ICON_PATH="/opt/cursor.png"
+  240  DESKTOP_ENTRY_PATH="/usr/share/applications/cursor.desktop"
+  241  # Download Cursor AppImage
+  242  echo "Downloading Cursor AppImage..."
+  243  sudo curl -L $CURSOR_URL -o $APPIMAGE_PATH
+  244  sudo chmod +x $APPIMAGE_PATH
+  245  # Download Cursor icon
+  246  echo "Downloading Cursor icon..."
+  247  sudo curl -L $ICON_URL -o $ICON_PATH
+  248  # Create a .desktop entry for Cursor
+  249  echo "Creating .desktop entry for Cursor..."
+  250  sudo bash -c "cat > $DESKTOP_ENTRY_PATH" <<EOL
+  251  [Desktop Entry]
+  252  Name=Cursor AI IDE
+  253  Exec=$APPIMAGE_PATH
+  254  Icon=$ICON_PATH
+  255  Type=Application
+  256  Categories=Development;
+  257  EOL
+  258  echo "Cursor AI IDE installation complete. You can find it in your application menu."
+  259  # Check if curl is installed, if not, install it
+  260  if ! command -v curl &> /dev/null; then     echo "curl is not installed. Installing...";     sudo apt-get update;     sudo apt-get install -y curl; fi
+  261  # URLs for Cursor AppImage and Icon
+  262  CURSOR_URL="https://downloader.cursor.sh/linux/appImage/x64"
+  263  ICON_URL="https://raw.githubusercontent.com/rahuljangirwork/copmany-logos/refs/heads/main/cursor.png"
+  264  # Paths for installation
+  265  APPIMAGE_PATH="/opt/cursor.appimage"
+  266  ICON_PATH="/opt/cursor.png"
+  267  DESKTOP_ENTRY_PATH="/usr/share/applications/cursor.desktop"
+  268  # Download Cursor AppImage
+  269  echo "Downloading Cursor AppImage..."
+  270  sudo curl -L $CURSOR_URL -o $APPIMAGE_PATH
+  271  sudo chmod +x $APPIMAGE_PATH
+  272  # Download Cursor icon
+  273  echo "Downloading Cursor icon..."
+  274  sudo curl -L $ICON_URL -o $ICON_PATH
+  275  # Create a .desktop entry for Cursor
+  276  echo "Creating .desktop entry for Cursor..."
+  277  sudo bash -c "cat > $DESKTOP_ENTRY_PATH" <<EOL
+  278  [Desktop Entry]
+  279  Name=Cursor AI IDE
+  280  Exec=$APPIMAGE_PATH
+  281  Icon=$ICON_PATH
+  282  Type=Application
+  283  Categories=Development;
+  284  EOL
+  285  echo "Cursor AI IDE installation complete. You can find it in your application menu."
+  286  ls /opt/cursor.appimage
+  287  sudo apt-get update
+  288  sudo apt-get install -y curl
+  289  sudo nano install_cursor.sh
+  290  chmod +x install_cursor.sh
+  291  sudo chmod +x install_cursor.sh
+  292  ./install_cursor.sh
+  293  git clone https://github.com/<your-username>/cursor-setup-wizard.git
+  294  cd cursor-setup-wizard
+  295  clear
+  296  curl https://cursor.com/install -fsS | bash
+  297  agent --version
+  298  echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+  299  source ~/.bashrc
+  300  agent
+  301  agent update
+  302  history 
+  303  history >history.txt
+
