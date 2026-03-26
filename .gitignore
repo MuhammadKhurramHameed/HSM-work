@@ -38,3 +38,8 @@ openssl-3.0.0.tar.gz
 
 # misc
 __pycache__/
+hls-hsm/build/
+pkcs11-daemon/build/
+softhsm-tokens/
+*.bin
+*.log
