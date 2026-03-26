@@ -1,0 +1,9 @@
+{
+  "op_id": "sign-0001",
+  "ts": "2026-03-26T07:50:00Z",
+  "op": "sign",
+  "key_label": "HLS_RSA",
+  "input_file": "msg.txt",
+  "output_file": "sig.bin",
+  "status": "ok"
+}
