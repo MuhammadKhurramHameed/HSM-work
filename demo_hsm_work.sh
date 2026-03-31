@@ -125,7 +125,7 @@ else
 fi
 
 section "12) Objects in SoftHSM"
-pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 -O
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 -O 2>/dev/null
 
 echo
 echo "Demo complete."

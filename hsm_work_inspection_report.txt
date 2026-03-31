@@ -1,0 +1,1976 @@
+# HSM work inspection report
+
+## File tree (excluding liboqs, openssl, softhsm, .git, build)
+.
+./certificate.pem
+./csr.pem
+./data.sha256
+./data.txt
+./demo_ciphertext.bin
+./demo_decrypted.txt
+./demo_hls_hsm.log
+./demo_hsm_work.sh
+./demo_msg.txt
+./demo_pkcs11d.log
+./demo_plaintext.txt
+./demo_random.bin
+./demo_random_readback.bin
+./demo_sig.bin
+./.gitignore
+./history.txt
+./hls-hsm
+./hls-hsm/CMakeLists.txt
+./hls-hsm/include
+./hls-hsm/include/hsm.h
+./hls-hsm/src
+./hls-hsm/src/hsm.cpp
+./hls-hsm/src/main.cpp
+./hls-hsm/src/pqc_demo.cpp
+./HSM_Firmware
+./HSM_Firmware/docs
+./HSM_Firmware/include
+./HSM_Firmware/include/crypto
+./HSM_Firmware/include/key_storage
+./HSM_Firmware/include/usb
+./HSM_Firmware/include/utils
+./HSM_Firmware/README.md
+./HSM_Firmware/src
+./HSM_Firmware/src/bootloader
+./HSM_Firmware/src/crypto
+./HSM_Firmware/src/key_storage
+./HSM_Firmware/src/main
+./HSM_Firmware/src/usb
+./HSM_Firmware/src/utils
+./hsm_sign_verify.sh
+./hsm_test
+./hsm_test.c
+./.hsm_test.c.swp
+./hsm_work_inspection_report.txt
+./liboqs_test
+./liboqs_test/CMakeFiles
+./liboqs_test/CMakeFiles/CMakeSystem.cmake
+./liboqs_test/CMakeLists.txt
+./liboqs_test/main.c
+./msg.txt
+./pkcs11-daemon
+./pkcs11-daemon/CMakeLists.txt
+./pkcs11-daemon/crypto.cpp
+./pkcs11-daemon/crypto.h
+./pkcs11-daemon/daemon.cpp
+./pkcs11-daemon/pkcs11.cpp
+./pkcs11-daemon/readme.txt
+./pkcs11-daemon/sd_import.cpp
+./pkcs11-daemon/sd_import.h
+./pkcs11-daemon/vault.cpp
+./pkcs11-daemon/vault.h
+./plaintext.txt
+./private_key.pem
+./pubkey.der
+./pubkey.pem
+./public_key.pem
+./random.bin
+./README.md
+./run_softhsm_demo.log
+./run_softhsm_demo.sh
+./sig.bin
+./signature.bin
+./sign_record.json
+./softhsm2.conf
+./softhsm2_demo.conf
+./store_record_in_softhsm.sh
+./vault.db
+
+## File contents
+
+===== ./certificate.pem =====
+-----BEGIN CERTIFICATE-----
+MIIDjTCCAnUCFHg7Yu+0tHAMS3mDmzyKOiaWgoNzMA0GCSqGSIb3DQEBCwUAMIGC
+MQswCQYDVQQGEwJQSzEPMA0GA1UECAwGRmVkcmFsMRIwEAYDVQQHDAlJc2xhbWFi
+YWQxDDAKBgNVBAoMA1FDTDEQMA4GA1UECwwHUUNMLU5FVDEQMA4GA1UEAwwHUS1E
+cml2ZTEcMBoGCSqGSIb3DQEJARYNdHRsQHFjLmNvbS5wazAeFw0yNjAyMTgwNjA1
+MTBaFw0yNjAzMjAwNjA1MTBaMIGCMQswCQYDVQQGEwJQSzEPMA0GA1UECAwGRmVk
+cmFsMRIwEAYDVQQHDAlJc2xhbWFiYWQxDDAKBgNVBAoMA1FDTDEQMA4GA1UECwwH
+UUNMLU5FVDEQMA4GA1UEAwwHUS1Ecml2ZTEcMBoGCSqGSIb3DQEJARYNdHRsQHFj
+LmNvbS5wazCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKqZr14Uoo9r
+LjOHHJW+GrSgtgECD0W0QUMUxHlwZitS3yqAWItWuoHloW+QqE0Q6eWkDz+PW9hB
+P51VOwGbhs6B1LYy9G5g+zdfvHaGERw0nM9Q/oaeyDYoFpcILagY/yQCgm0Vcdm8
+YhCn5gXiRDSTTYZ55A2CQSMDMHI2mPu/pDXsmnu7P9MOafBj+88nh8yiSjMCwggW
+Gc4QIehAvGPDKJoG1PzsjkHkNuIJjltlQ/iQXs6LkKmxN5jaSmuhCi1QE6KnUHYl
+0kWvevnum6MCLd98iI+N7/CxySNuEDOXAf35+0cQlNG0dHnUfvj2G+GhIzGvmpaN
+nlp8zzQpoW0CAwEAATANBgkqhkiG9w0BAQsFAAOCAQEASsuczxcJe3AmcyBQLWTS
+MqZUeF/V5uQtMABlfIoC2j0WJt07ysoSfBS/NyxziWShp5IWYrXN2IMCxsTQ6Z6F
+x18uEgHjnAre0n509QU/NnKKaWr93S8nTDkMeXsmthTrTXU1nTAUjQTyJaqXTWb1
+YOklxH2FMKNMOPqcQkY+42IjaV6fHxWR++yjN/Q1iNMCgO4vfxWdFbFICoOE6pKk
+LUFmN3YMUOrbf2Axc699Nsyxnbh2uT0baesdkModOByy+WQW+48Pu8E2eb4O6BoZ
+JfwPwRHhwUZWztkhvwcCfGMjtm7Os+yaq1Jo5S3eu4jvTKbQDVws+o91emJKzNVj
+1A==
+-----END CERTIFICATE-----
+
+===== ./csr.pem =====
+-----BEGIN CERTIFICATE REQUEST-----
+MIIC8jCCAdoCAQAwgYIxCzAJBgNVBAYTAlBLMQ8wDQYDVQQIDAZGZWRyYWwxEjAQ
+BgNVBAcMCUlzbGFtYWJhZDEMMAoGA1UECgwDUUNMMRAwDgYDVQQLDAdRQ0wtTkVU
+MRAwDgYDVQQDDAdRLURyaXZlMRwwGgYJKoZIhvcNAQkBFg10dGxAcWMuY29tLnBr
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqpmvXhSij2suM4cclb4a
+tKC2AQIPRbRBQxTEeXBmK1LfKoBYi1a6geWhb5CoTRDp5aQPP49b2EE/nVU7AZuG
+zoHUtjL0bmD7N1+8doYRHDScz1D+hp7INigWlwgtqBj/JAKCbRVx2bxiEKfmBeJE
+NJNNhnnkDYJBIwMwcjaY+7+kNeyae7s/0w5p8GP7zyeHzKJKMwLCCBYZzhAh6EC8
+Y8MomgbU/OyOQeQ24gmOW2VD+JBezouQqbE3mNpKa6EKLVAToqdQdiXSRa96+e6b
+owIt33yIj43v8LHJI24QM5cB/fn7RxCU0bR0edR++PYb4aEjMa+alo2eWnzPNCmh
+bQIDAQABoCowEQYJKoZIhvcNAQkCMQQMAlFDMBUGCSqGSIb3DQEJBzEIDAYxMjM0
+NTYwDQYJKoZIhvcNAQELBQADggEBAAAtJsR7Dm+HPt5u4OcOAQuT9E/U6zWV9uEx
+uwpa4cEwpwwzHXWK/wn8iFT7pnk/4RBFeq44szhnP1d5rneYsOpnmcRBskb/MD50
+IB8hDpEN6YpbwC5OxA9NH/PTA1bF3zRlN2/LYRjOq0oNBR9Y50wwSTZN/IgM62dE
+NqPlN7JTfqCLv/zGQygHqhGTGidKWMeR+IWNbJQFfVq9a2z9SKMOtTJEJ84J4kvD
+1ZgM28EaIffcg+iBgLdUWaKbKPzV2SFSFVmoEmjUhNG65TGFfRlqoLhCPES+CTcd
+GyXaBgKqMdcUExVdKcT7sJgEplOqOGPm3gAa+reaXWa9Rqk7ya8=
+-----END CERTIFICATE REQUEST-----
+
+===== ./data.sha256 =====
+SHA2-256(data.txt)= 7c9dad40ceb8389fcd617964b6ea5168d9ee56ba64fd018d545939503e7711c4
+
+===== ./data.txt =====
+HSM firmware simulation test
+
+===== ./demo_ciphertext.bin =====
+[skipped non-text file: application/octet-stream]
+
+===== ./demo_decrypted.txt =====
+Hello PKCS11 via AES key in SoftHSM
+
+===== ./demo_hls_hsm.log =====
+HSM initialized
+Retrieved key:  with size 256 bytes
+Random bytes: 22 39 52 1d e2 98 e2 ec 1f 8f f7 e7 42 f4 34 69 31 1a 8d c2 3c 9f 93 d9 49 5c 75 6b 37 9f 6b b2 b 78 ad e9 2e 6b d5 3b 5d 40 53 31 d2 f4 88 4e d6 d3 62 99 dd 1a cd 7f 7f 50 ff 35 47 7c 97 2f 
+
+===== ./demo_hsm_work.sh =====
+#!/usr/bin/env bash
+set -euo pipefail
+
+WORK="$HOME/HSM work"
+TOY_BUILD="$WORK/pkcs11-daemon/build"
+HLS_BUILD="$WORK/hls-hsm/build"
+
+TOY_DAEMON="$TOY_BUILD/pkcs11d"
+TOY_MODULE="$TOY_BUILD/libpkcs11lib.so"
+HLS_BIN="$HLS_BUILD/hls_hsm"
+
+SOFT_MODULE="/usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so"
+SOFTHSM2_CONF_FILE="$WORK/softhsm2_demo.conf"
+SOFTHSM_TOKENS_DIR="$WORK/softhsm-tokens-demo"
+
+MSG_FILE="$WORK/demo_msg.txt"
+PLAINTEXT_FILE="$WORK/demo_plaintext.txt"
+SIG_FILE="$WORK/demo_sig.bin"
+CIPHERTEXT_FILE="$WORK/demo_ciphertext.bin"
+DECRYPTED_FILE="$WORK/demo_decrypted.txt"
+RANDOM_FILE="$WORK/demo_random.bin"
+READBACK_FILE="$WORK/demo_random_readback.bin"
+DAEMON_LOG="$WORK/demo_pkcs11d.log"
+HLS_LOG="$WORK/demo_hls_hsm.log"
+
+IV="00000000000000000000000000000000"
+
+section() {
+  printf '\n===== %s =====\n' "$1"
+}
+
+need() {
+  command -v "$1" >/dev/null 2>&1 || { echo "Missing command: $1"; exit 1; }
+}
+
+need pkcs11-tool
+need softhsm2-util
+need timeout
+
+[ -x "$TOY_DAEMON" ] || { echo "Missing: $TOY_DAEMON"; exit 1; }
+[ -f "$TOY_MODULE" ] || { echo "Missing: $TOY_MODULE"; exit 1; }
+[ -x "$HLS_BIN" ] || { echo "Missing: $HLS_BIN"; exit 1; }
+[ -f "$SOFT_MODULE" ] || { echo "Missing: $SOFT_MODULE"; exit 1; }
+
+section "1) Toy PKCS#11 module"
+pkcs11-tool --module "$TOY_MODULE" -L
+
+section "2) Toy daemon"
+rm -f "$DAEMON_LOG"
+set +e
+timeout 3 "$TOY_DAEMON" > "$DAEMON_LOG" 2>&1
+RC=$?
+set -e
+if [ "$RC" -ne 0 ] && [ "$RC" -ne 124 ]; then
+  echo "pkcs11d failed"
+  cat "$DAEMON_LOG"
+  exit 1
+fi
+sed -n '1,20p' "$DAEMON_LOG"
+
+section "3) HLS-HSM standalone"
+"$HLS_BIN" | tee "$HLS_LOG"
+
+section "4) Fresh SoftHSM token"
+rm -rf "$SOFTHSM_TOKENS_DIR"
+mkdir -p "$SOFTHSM_TOKENS_DIR"
+chmod 700 "$SOFTHSM_TOKENS_DIR"
+printf 'directories.tokendir = %s\n' "$SOFTHSM_TOKENS_DIR" > "$SOFTHSM2_CONF_FILE"
+export SOFTHSM2_CONF="$SOFTHSM2_CONF_FILE"
+export PKCS11_MODULE_PATH="$SOFT_MODULE"
+
+softhsm2-util --init-token --free --label "dev-token" --so-pin 0000 --pin 1234
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -L
+
+section "5) Demo input files"
+printf 'hello from HSM\n' > "$MSG_FILE"
+printf 'Hello PKCS11 via AES key in SoftHSM\n' > "$PLAINTEXT_FILE"
+head -c 32 /dev/urandom > "$RANDOM_FILE"
+
+section "6) Generate RSA and AES keys in SoftHSM"
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --keypairgen --key-type RSA:2048 --id 01 --label HLS_RSA \
+  --usage-sign --usage-decrypt
+
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --keygen --key-type AES:32 --id 20 --label HLS_AES --usage-decrypt
+
+section "7) Store random bytes as SoftHSM data object"
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --write-object "$RANDOM_FILE" --type data \
+  --application-label HLS_RANDOM_DATA
+
+section "8) RSA sign and verify"
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --sign --mechanism SHA256-RSA-PKCS --type privkey --id 01 \
+  --input-file "$MSG_FILE" --output-file "$SIG_FILE"
+
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --verify --mechanism SHA256-RSA-PKCS --type pubkey --id 01 \
+  --input-file "$MSG_FILE" --signature-file "$SIG_FILE"
+
+section "9) AES encrypt and decrypt"
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --encrypt --mechanism AES-CBC-PAD --type secrkey --id 20 --iv "$IV" \
+  --input-file "$PLAINTEXT_FILE" --output-file "$CIPHERTEXT_FILE"
+
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --decrypt --mechanism AES-CBC-PAD --type secrkey --id 20 --iv "$IV" \
+  --input-file "$CIPHERTEXT_FILE" --output-file "$DECRYPTED_FILE"
+
+section "10) Read back stored random data"
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --read-object --type data \
+  --application-label HLS_RANDOM_DATA \
+  --output-file "$READBACK_FILE"
+
+section "11) Results"
+echo "Decrypted text:"
+cat "$DECRYPTED_FILE"
+echo
+if cmp -s "$RANDOM_FILE" "$READBACK_FILE"; then
+  echo "Random data readback: OK"
+else
+  echo "Random data readback: DIFFERENT"
+fi
+
+section "12) Objects in SoftHSM"
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 -O 2>/dev/null
+
+echo
+echo "Demo complete."
+echo "Logs:"
+echo "  $DAEMON_LOG"
+echo "  $HLS_LOG"
+
+===== ./demo_msg.txt =====
+hello from HSM
+
+===== ./demo_pkcs11d.log =====
+Starting PKCS11 daemon
+SDImporter initialized with vault
+pqc_generate() not implemented yet
+
+===== ./demo_plaintext.txt =====
+Hello PKCS11 via AES key in SoftHSM
+
+===== ./demo_random.bin =====
+[skipped non-text file: application/octet-stream]
+
+===== ./demo_random_readback.bin =====
+[skipped non-text file: application/octet-stream]
+
+===== ./demo_sig.bin =====
+[skipped non-text file: application/octet-stream]
+
+===== ./.gitignore =====
+# build artifacts
+build/
+*/build/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+compile_commands.json
+*.o
+*.a
+*.so
+*.log
+*.db
+*.sqlite
+
+# SoftHSM / local runtime
+softhsm-tokens/
+softhsm2.conf
+
+# keys / certs / signatures / local test artifacts
+*.pem
+*.der
+*.csr
+*.key
+*.bin
+signature*
+certificate*
+private_key*
+public_key*
+pubkey*
+data.txt
+data.sha256
+random.bin
+
+# local sources / downloads
+openssl-3.0.0/
+openssl-3.0.0.tar.gz
+
+# misc
+__pycache__/
+hls-hsm/build/
+pkcs11-daemon/build/
+softhsm-tokens/
+*.bin
+*.log
+
+===== ./history.txt =====
+  710      // Initialize HSM
+  711      void init();
+  712      // Key management
+  713      std::string generate_rsa_key(int bits = 2048);
+  714      std::string generate_aes_key(int bits = 256);
+  715      Key get_key(const std::string& id);
+  716      // Random number generation
+  717      std::vector<uint8_t> get_random_bytes(size_t length);
+  718  private:
+  719      std::map<std::string, Key> keys_;
+  720      int key_counter_ = 0;
+  721  };
+  722  EOF
+  723  # Populate src/hsm.cpp
+  724  cat <<'EOF' > ~/hls-hsm/src/hsm.cpp
+  725  #include "hsm.h"
+  726  #include <random>
+  727  void HSM::init() {
+  728      std::cout << "HSM initialized\n";
+  729  }
+  730  std::string HSM::generate_rsa_key(int bits) {
+  731      std::string id = "RSA_" + std::to_string(key_counter_++);
+  732      Key k;
+  733      k.id = id;
+  734      k.type = KeyType::RSA;
+  735      k.data.resize(bits/8, 0); // placeholder bytes
+  736      keys_[id] = k;
+  737      std::cout << "Generated RSA key: " << id << " (" << bits << " bits)\n";
+  738      return id;
+  739  }
+  740  std::string HSM::generate_aes_key(int bits) {
+  741      std::string id = "AES_" + std::to_string(key_counter_++);
+  742      Key k;
+  743      k.id = id;
+  744      k.type = KeyType::AES;
+  745      k.data.resize(bits/8, 0); // placeholder bytes
+  746      keys_[id] = k;
+  747      std::cout << "Generated AES key: " << id << " (" << bits << " bits)\n";
+  748      return id;
+  749  }
+  750  Key HSM::get_key(const std::string& id) {
+  751      if(keys_.find(id) != keys_.end()) return keys_[id];
+  752      throw std::runtime_error("Key not found: " + id);
+  753  }
+  754  std::vector<uint8_t> HSM::get_random_bytes(size_t length) {
+  755      std::vector<uint8_t> buf(length);
+  756      std::random_device rd;
+  757      std::generate(buf.begin(), buf.end(), [&rd]() { return rd() & 0xFF; });
+  758      return buf;
+  759  }
+  760  EOF
+  761  # Populate src/main.cpp
+  762  cat <<'EOF' > ~/hls-hsm/src/main.cpp
+  763  #include "hsm.h"
+  764  #include <iostream>
+  765  int main() {
+  766      HSM hsm;
+  767      hsm.init();
+  768      auto rsa_id = hsm.generate_rsa_key(2048);
+  769      auto aes_id = hsm.generate_aes_key(256);
+  770      auto key = hsm.get_key(rsa_id);
+  771      std::cout << "Retrieved key: " << key.id << " with size " << key.data.size() << " bytes\n";
+  772      auto random = hsm.get_random_bytes(16);
+  773      std::cout << "Random bytes: ";
+  774      for(auto b : random) std::cout << std::hex << (int)b << " ";
+  775      std::cout << std::dec << "\n";
+  776      return 0;
+  777  }
+  778  EOF
+  779  cd ~/hls-hsm/build
+  780  cmake ..
+  781  make
+  782  sed -i '1i#include <algorithm>' ~/hls-hsm/src/hsm.cpp
+  783  cd ~/hls-hsm/build && make
+  784  cd ~/hls-hsm/build
+  785  cmake ..
+  786  make
+  787  echo -e '\nstd::vector<unsigned char> HSM::get_random_bytes(size_t len) {\n    std::vector<unsigned char> buf(len);\n    std::random_device rd;\n    std::generate(buf.begin(), buf.end(), [&rd]() { return rd() & 0xFF; });\n    return buf;\n}' >> ~/hls-hsm/src/hsm.cpp
+  788  cd ~/hls-hsm/build && make
+  789  sed -i '/HSM::get_random_bytes/,+4d' ~/hls-hsm/src/hsm.cpp && echo -e 'std::vector<uint8_t> HSM::get_random_bytes(size_t length) {\n    std::vector<uint8_t> buf(length);\n    std::random_device rd;\n    std::generate(buf.begin(), buf.end(), [&rd]() { return rd() & 0xFF; });\n    return buf;\n}' >> ~/hls-hsm/src/hsm.cpp
+  790  cd ~/hls-hsm/build && make
+  791  sed -i '/HSM::get_random_bytes/,+10d' ~/hls-hsm/src/hsm.cpp && echo -e 'std::vector<uint8_t> HSM::get_random_bytes(size_t length) {\n    std::vector<uint8_t> buf(length);\n    std::random_device rd;\n    std::generate(buf.begin(), buf.end(), [&rd]() { return rd() & 0xFF; });\n    return buf;\n}' >> ~/hls-hsm/src/hsm.cpp
+  792  cd ~/hls-hsm/build && make
+  793  cat > ~/hls-hsm/src/hsm.cpp <<'EOF'
+  794  #include "hsm.h"
+  795  #include <vector>
+  796  #include <random>
+  797  #include <algorithm>
+  798  #include <cstdint>
+  799  std::vector<uint8_t> HSM::get_random_bytes(size_t length) {
+  800      std::vector<uint8_t> buf(length);
+  801      std::random_device rd;
+  802      std::generate(buf.begin(), buf.end(), [&rd]() { return rd() & 0xFF; });
+  803      return buf;
+  804  }
+  805  // Add other HSM class functions below as needed
+  806  EOF
+  807  cd ~/hls-hsm/build && make
+  808  cat > ~/hls-hsm/src/hsm.cpp <<'EOF'
+  809  #include "hsm.h"
+  810  #include <vector>
+  811  #include <random>
+  812  #include <cstdint>
+  813  #include <string>
+  814  #include <map>
+  815  #include <iostream>
+  816  // Store keys in memory for testing
+  817  static std::map<std::string, std::vector<uint8_t>> key_store;
+  818  std::vector<uint8_t> HSM::get_random_bytes(size_t length) {
+  819      std::vector<uint8_t> buf(length);
+  820      std::random_device rd;
+  821      std::generate(buf.begin(), buf.end(), [&rd]() { return rd() & 0xFF; });
+  822      return buf;
+  823  }
+  824  bool HSM::init() {
+  825      std::cout << "HSM initialized\n";
+  826      return true;
+  827  }
+  828  std::string HSM::generate_rsa_key(int bits) {
+  829      std::string key = "RSA_KEY_" + std::to_string(bits);
+  830      key_store[key] = get_random_bytes(bits / 8); // simple stub
+  831      return key;
+  832  }
+  833  std::string HSM::generate_aes_key(int bits) {
+  834      std::string key = "AES_KEY_" + std::to_string(bits);
+  835      key_store[key] = get_random_bytes(bits / 8); // simple stub
+  836      return key;
+  837  }
+  838  std::vector<uint8_t> HSM::get_key(const std::string& name) {
+  839      if (key_store.find(name) != key_store.end()) {
+  840          return key_store[name];
+  841      }
+  842      return {};
+  843  }
+  844  EOF
+  845  cd ~/hls-hsm/build && make
+  846  cat > ~/hls-hsm/src/hsm.cpp <<'EOF'
+  847  #include "hsm.h"
+  848  #include <vector>
+  849  #include <random>
+  850  #include <cstdint>
+  851  #include <string>
+  852  #include <map>
+  853  #include <iostream>
+  854  #include <algorithm> // for std::generate
+  855  // Store keys in memory for testing
+  856  static std::map<std::string, Key> key_store;
+  857  void HSM::init() {
+  858      std::cout << "HSM initialized\n";
+  859  }
+  860  std::string HSM::generate_rsa_key(int bits) {
+  861      std::string key_id = "RSA_" + std::to_string(bits);
+  862      Key k; // create empty Key stub
+  863      k.data = std::vector<uint8_t>(bits/8, 0); // dummy bytes
+  864      key_store[key_id] = k;
+  865      return key_id;
+  866  }
+  867  std::string HSM::generate_aes_key(int bits) {
+  868      std::string key_id = "AES_" + std::to_string(bits);
+  869      Key k;
+  870      k.data = std::vector<uint8_t>(bits/8, 0);
+  871      key_store[key_id] = k;
+  872      return key_id;
+  873  }
+  874  Key HSM::get_key(const std::string& id) {
+  875      if (key_store.find(id) != key_store.end()) {
+  876          return key_store[id];
+  877      }
+  878      return Key{};
+  879  }
+  880  std::vector<uint8_t> HSM::get_random_bytes(size_t length) {
+  881      std::vector<uint8_t> buf(length);
+  882      std::random_device rd;
+  883      std::generate(buf.begin(), buf.end(), [&rd]() { return rd() & 0xFF; });
+  884      return buf;
+  885  }
+  886  EOF
+  887  cd ~/hls-hsm/build && make
+  888  ./hls_hsm
+  889  cd ~/hls-hsm/build && make
+  890  ./hls_hsm
+  891  cd ~/hls-hsm/
+  892  ls
+  893  cd src/
+  894  ls
+  895  sudo nano main.cpp 
+  896  cd ~/hls-hsm/build && make
+  897  ./hls_hsm
+  898  cd ~/pkcs11-daemon && rm -rf build && mkdir build && cd build && cmake .. && make -j"$(nproc)" && ./pkcs11d
+  899  cd ~/SoftHSMv2 && rm -rf build && mkdir build && cd build && cmake .. && make -j"$(nproc)" && sudo make install && sudo ldconfig
+  900  cd ~/hls-hsm && rm -rf build && mkdir build && cd build && cmake .. && make -j"$(nproc)" && ./hls_hsm
+  901  cd ~/pkcs11-daemon && cat > CMakeLists.txt <<'EOF'
+  902  cmake_minimum_required(VERSION 3.10)
+  903  project(pkcs11_daemon)
+  904  set(CMAKE_CXX_STANDARD 17)
+  905  set(CMAKE_CXX_STANDARD_REQUIRED ON)
+  906  find_package(OpenSSL REQUIRED)
+  907  find_package(PkgConfig REQUIRED)
+  908  pkg_check_modules(LIBUDEV REQUIRED libudev)
+  909  include_directories(${OPENSSL_INCLUDE_DIR} ${LIBUDEV_INCLUDE_DIRS})
+  910  add_executable(pkcs11d
+  911      daemon.cpp
+  912      crypto.cpp
+  913      vault.cpp
+  914      sd_import.cpp
+  915  )
+  916  add_library(pkcs11lib SHARED
+  917      pkcs11.cpp
+  918  )
+  919  target_link_libraries(pkcs11d
+  920      ${OPENSSL_LIBRARIES}
+  921      ${LIBUDEV_LIBRARIES}
+  922  )
+  923  target_link_libraries(pkcs11lib
+  924      ${OPENSSL_LIBRARIES}
+  925  )
+  926  target_compile_options(pkcs11d PRIVATE ${LIBUDEV_CFLAGS_OTHER})
+  927  target_include_directories(pkcs11d PRIVATE ${LIBUDEV_INCLUDE_DIRS})
+  928  EOF
+  929  rm -rf build && mkdir build && cd build && cmake .. && make -j"$(nproc)"
+  930  sudo apt update && sudo apt install -y libsqlite3-dev p11-kit-dev && cd ~/pkcs11-daemon && cat > CMakeLists.txt <<'EOF'
+  931  cmake_minimum_required(VERSION 3.10)
+  932  project(pkcs11_daemon)
+  933  set(CMAKE_CXX_STANDARD 17)
+  934  set(CMAKE_CXX_STANDARD_REQUIRED ON)
+  935  find_package(OpenSSL REQUIRED)
+  936  find_package(PkgConfig REQUIRED)
+  937  find_package(SQLite3 REQUIRED)
+  938  pkg_check_modules(LIBUDEV REQUIRED libudev)
+  939  pkg_check_modules(P11KIT REQUIRED p11-kit-1)
+  940  include_directories(
+  941      ${OPENSSL_INCLUDE_DIR}
+  942      ${LIBUDEV_INCLUDE_DIRS}
+  943      ${P11KIT_INCLUDE_DIRS}
+  944      ${SQLite3_INCLUDE_DIRS}
+  945  )
+  946  add_executable(pkcs11d
+  947      daemon.cpp
+  948      crypto.cpp
+  949      vault.cpp
+  950      sd_import.cpp
+  951  )
+  952  add_library(pkcs11lib SHARED
+  953      pkcs11.cpp
+  954  )
+  955  target_link_libraries(pkcs11d
+  956      ${OPENSSL_LIBRARIES}
+  957      ${LIBUDEV_LIBRARIES}
+  958      SQLite::SQLite3
+  959  )
+
+===== ./hls-hsm/CMakeLists.txt =====
+cmake_minimum_required(VERSION 3.20)
+project(hls_hsm)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+include_directories(include)
+
+find_path(OQS_INCLUDE_DIR oqs/oqs.h PATHS /usr/local/include /usr/include REQUIRED)
+find_library(OQS_LIB oqs PATHS /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu REQUIRED)
+
+add_executable(hls_hsm
+    src/main.cpp
+    src/hsm.cpp
+)
+target_include_directories(hls_hsm PRIVATE include)
+
+add_executable(hls_pqc_demo
+    src/pqc_demo.cpp
+)
+target_include_directories(hls_pqc_demo PRIVATE ${OQS_INCLUDE_DIR})
+target_link_libraries(hls_pqc_demo PRIVATE ${OQS_LIB})
+
+===== ./hls-hsm/include/hsm.h =====
+#pragma once
+#include <string>
+#include <vector>
+#include <map>
+#include <cstdint>
+#include <memory>
+#include <iostream>
+
+enum class KeyType { RSA, AES };
+
+struct Key {
+    std::string id;
+    KeyType type;
+    std::vector<uint8_t> data;
+};
+
+class HSM {
+public:
+    // Initialize HSM
+    void init();
+
+    // Key management
+    std::string generate_rsa_key(int bits = 2048);
+    std::string generate_aes_key(int bits = 256);
+    Key get_key(const std::string& id);
+
+    // Random number generation
+    std::vector<uint8_t> get_random_bytes(size_t length);
+
+private:
+    std::map<std::string, Key> keys_;
+    int key_counter_ = 0;
+};
+
+===== ./hls-hsm/src/hsm.cpp =====
+#include "hsm.h"
+#include <vector>
+#include <random>
+#include <cstdint>
+#include <string>
+#include <map>
+#include <iostream>
+#include <algorithm> // for std::generate
+
+// Store keys in memory for testing
+static std::map<std::string, Key> key_store;
+
+void HSM::init() {
+    std::cout << "HSM initialized\n";
+}
+
+std::string HSM::generate_rsa_key(int bits) {
+    std::string key_id = "RSA_" + std::to_string(bits);
+    Key k; // create empty Key stub
+    k.data = std::vector<uint8_t>(bits/8, 0); // dummy bytes
+    key_store[key_id] = k;
+    return key_id;
+}
+
+std::string HSM::generate_aes_key(int bits) {
+    std::string key_id = "AES_" + std::to_string(bits);
+    Key k;
+    k.data = std::vector<uint8_t>(bits/8, 0);
+    key_store[key_id] = k;
+    return key_id;
+}
+
+Key HSM::get_key(const std::string& id) {
+    if (key_store.find(id) != key_store.end()) {
+        return key_store[id];
+    }
+    return Key{};
+}
+
+std::vector<uint8_t> HSM::get_random_bytes(size_t length) {
+    std::vector<uint8_t> buf(length);
+    std::random_device rd;
+    std::generate(buf.begin(), buf.end(), [&rd]() { return rd() & 0xFF; });
+    return buf;
+}
+
+===== ./hls-hsm/src/main.cpp =====
+#include "hsm.h"
+#include <iostream>
+
+int main() {
+    HSM hsm;
+    hsm.init();
+
+    auto rsa_id = hsm.generate_rsa_key(2048);
+    auto aes_id = hsm.generate_aes_key(256);
+
+    auto key = hsm.get_key(rsa_id);
+    std::cout << "Retrieved key: " << key.id << " with size " << key.data.size() << " bytes\n";
+
+    auto random = hsm.get_random_bytes(64);
+    std::cout << "Random bytes: ";
+    for(auto b : random) std::cout << std::hex << (int)b << " ";
+    std::cout << std::dec << "\n";
+
+    return 0;
+}
+
+===== ./hls-hsm/src/pqc_demo.cpp =====
+#include <oqs/oqs.h>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
+
+static bool write_bin(const std::string &path, const uint8_t *data, size_t len) {
+    std::ofstream out(path, std::ios::binary);
+    if (!out) return false;
+    out.write(reinterpret_cast<const char *>(data), static_cast<std::streamsize>(len));
+    return static_cast<bool>(out);
+}
+
+int main() {
+    OQS_init();
+
+    const char *alg = OQS_SIG_alg_ml_dsa_65;
+    OQS_SIG *sig = OQS_SIG_new(alg);
+    if (sig == nullptr) {
+        std::cerr << "liboqs algorithm not available at compile/runtime: " << alg << "\n";
+        OQS_destroy();
+        return 1;
+    }
+
+    const std::string message = "hello from liboqs";
+    std::vector<uint8_t> public_key(sig->length_public_key);
+    std::vector<uint8_t> secret_key(sig->length_secret_key);
+    std::vector<uint8_t> signature(sig->length_signature);
+    size_t signature_len = 0;
+
+    if (OQS_SIG_keypair(sig, public_key.data(), secret_key.data()) != OQS_SUCCESS) {
+        std::cerr << "OQS_SIG_keypair failed\n";
+        OQS_SIG_free(sig);
+        OQS_destroy();
+        return 1;
+    }
+
+    if (OQS_SIG_sign(sig,
+                     signature.data(),
+                     &signature_len,
+                     reinterpret_cast<const uint8_t *>(message.data()),
+                     message.size(),
+                     secret_key.data()) != OQS_SUCCESS) {
+        std::cerr << "OQS_SIG_sign failed\n";
+        OQS_MEM_cleanse(secret_key.data(), secret_key.size());
+        OQS_SIG_free(sig);
+        OQS_destroy();
+        return 1;
+    }
+
+    if (OQS_SIG_verify(sig,
+                       reinterpret_cast<const uint8_t *>(message.data()),
+                       message.size(),
+                       signature.data(),
+                       signature_len,
+                       public_key.data()) != OQS_SUCCESS) {
+        std::cerr << "OQS_SIG_verify failed\n";
+        OQS_MEM_cleanse(secret_key.data(), secret_key.size());
+        OQS_SIG_free(sig);
+        OQS_destroy();
+        return 1;
+    }
+
+    if (!write_bin("pqc_pub.bin", public_key.data(), public_key.size()) ||
+        !write_bin("pqc_sig.bin", signature.data(), signature_len)) {
+        std::cerr << "failed to write output files\n";
+        OQS_MEM_cleanse(secret_key.data(), secret_key.size());
+        OQS_SIG_free(sig);
+        OQS_destroy();
+        return 1;
+    }
+
+    {
+        std::ofstream msg("pqc_message.txt");
+        msg << message;
+    }
+
+    {
+        std::ofstream rec("pqc_sign_record.json");
+        rec << "{\n"
+            << "  \"op_id\": \"pqc-sign-0001\",\n"
+            << "  \"op\": \"pqc_sign_verify\",\n"
+            << "  \"algorithm\": \"" << alg << "\",\n"
+            << "  \"message_file\": \"pqc_message.txt\",\n"
+            << "  \"public_key_file\": \"pqc_pub.bin\",\n"
+            << "  \"signature_file\": \"pqc_sig.bin\",\n"
+            << "  \"public_key_len\": " << public_key.size() << ",\n"
+            << "  \"signature_len\": " << signature_len << ",\n"
+            << "  \"status\": \"ok\"\n"
+            << "}\n";
+    }
+
+    OQS_MEM_cleanse(secret_key.data(), secret_key.size());
+    OQS_SIG_free(sig);
+    OQS_destroy();
+
+    std::cout << "PQC sign/verify completed successfully\n";
+    return 0;
+}
+
+===== ./HSM_Firmware/README.md =====
+[skipped non-text file: inode/x-empty]
+
+===== ./hsm_sign_verify.sh =====
+#!/bin/bash
+# hsm_sign_verify.sh
+# Usage: ./hsm_sign_verify.sh <file_to_sign>
+
+FILE="$1"
+SLOT=80451484
+PIN=1234
+KEYID=10
+MODULE="/usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so"
+
+if [ -z "$FILE" ]; then
+  echo "Usage: $0 <file_to_sign>"
+  exit 1
+fi
+
+# 1️⃣ Sign the file with SoftHSM
+pkcs11-tool \
+  --module $MODULE \
+  --slot $SLOT \
+  --login \
+  --pin $PIN \
+  --sign \
+  --mechanism RSA-PKCS \
+  --input-file "$FILE" \
+  --output-file "${FILE}.sig" \
+  --id $KEYID
+
+# 2️⃣ Export public key
+pkcs11-tool \
+  --module $MODULE \
+  --slot $SLOT \
+  --login \
+  --pin $PIN \
+  --read-object \
+  --type pubkey \
+  --id $KEYID \
+  --output-file pubkey.der
+
+# 3️⃣ Convert DER → PEM
+openssl rsa -pubin -inform DER -in pubkey.der -out pubkey.pem
+
+# 4️⃣ Verify signature
+openssl pkeyutl \
+  -verify \
+  -pubin \
+  -inkey pubkey.pem \
+  -in "$FILE" \
+  -sigfile "${FILE}.sig" \
+  -pkeyopt digest:sha256
+
+echo "File signed and verified successfully (if no errors shown)"
+
+===== ./hsm_test =====
+[skipped non-text file: application/x-pie-executable]
+
+===== ./hsm_test.c =====
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <dlfcn.h>
+#include "pkcs11.h"
+
+#define PKCS11_LIB "/usr/lib/softhsm/libsofthsm2.so"
+#define TOKEN_LABEL "MyToken"
+#define USER_PIN "5678"
+
+void check_ck_r(CK_RV rv, const char *msg) {
+    if (rv != CKR_OK) {
+        fprintf(stderr, "ERROR: %s (CK_RV=0x%lX)\n", msg, rv);
+        exit(EXIT_FAILURE);
+    }
+}
+
+int main() {
+    void *lib_handle;
+    CK_RV (*C_Initialize)(CK_VOID_PTR);
+    CK_RV (*C_Finalize)(CK_VOID_PTR);
+    CK_RV (*C_GetSlotList)(CK_BBOOL, CK_SLOT_ID_PTR, CK_ULONG_PTR);
+    CK_RV (*C_OpenSession)(CK_SLOT_ID, CK_FLAGS, CK_VOID_PTR, CK_NOTIFY, CK_SESSION_HANDLE *);
+    CK_RV (*C_CloseSession)(CK_SESSION_HANDLE);
+    CK_RV (*C_Login)(CK_SESSION_HANDLE, CK_USER_TYPE, CK_UTF8CHAR_PTR, CK_ULONG);
+    CK_RV (*C_Logout)(CK_SESSION_HANDLE);
+    CK_RV (*C_FindObjectsInit)(CK_SESSION_HANDLE, CK_ATTRIBUTE_PTR, CK_ULONG);
+    CK_RV (*C_FindObjects)(CK_SESSION_HANDLE, CK_OBJECT_HANDLE_PTR, CK_ULONG, CK_ULONG_PTR);
+    CK_RV (*C_FindObjectsFinal)(CK_SESSION_HANDLE);
+
+    lib_handle = dlopen(PKCS11_LIB, RTLD_NOW);
+    if (!lib_handle) {
+        fprintf(stderr, "Failed to load PKCS#11 library: %s\n", dlerror());
+        return EXIT_FAILURE;
+    }
+
+    // Load required function pointers
+    C_Initialize = dlsym(lib_handle, "C_Initialize");
+    C_Finalize = dlsym(lib_handle, "C_Finalize");
+    C_GetSlotList = dlsym(lib_handle, "C_GetSlotList");
+    C_OpenSession = dlsym(lib_handle, "C_OpenSession");
+    C_CloseSession = dlsym(lib_handle, "C_CloseSession");
+    C_Login = dlsym(lib_handle, "C_Login");
+    C_Logout = dlsym(lib_handle, "C_Logout");
+    C_FindObjectsInit = dlsym(lib_handle, "C_FindObjectsInit");
+    C_FindObjects = dlsym(lib_handle, "C_FindObjects");
+    C_FindObjectsFinal = dlsym(lib_handle, "C_FindObjectsFinal");
+
+    if (!C_Initialize || !C_Finalize || !C_GetSlotList || !C_OpenSession ||
+        !C_CloseSession || !C_Login || !C_Logout || !C_FindObjectsInit ||
+        !C_FindObjects || !C_FindObjectsFinal) {
+        fprintf(stderr, "Failed to load PKCS#11 function pointers.\n");
+        return EXIT_FAILURE;
+    }
+
+    // Initialize PKCS#11
+    check_ck_r(C_Initialize(NULL), "C_Initialize failed");
+
+    // Get slots
+    CK_SLOT_ID slots[32];
+    CK_ULONG slot_count = 32;
+    check_ck_r(C_GetSlotList(CK_TRUE, slots, &slot_count), "C_GetSlotList failed");
+
+    CK_SLOT_ID token_slot = 0;
+    CK_ULONG i;
+    int found = 0;
+
+    for (i = 0; i < slot_count; i++) {
+        CK_TOKEN_INFO token_info;
+        CK_RV rv = (*(CK_RV(*)(CK_SLOT_ID, CK_TOKEN_INFO_PTR))dlsym(lib_handle, "C_GetTokenInfo"))(slots[i], &token_info);
+        if (rv != CKR_OK) continue;
+
+        char label[33];
+        memcpy(label, token_info.label, 32);
+        label[32] = '\0';
+        for (int j = 31; j >= 0 && label[j] == ' '; j--) label[j] = '\0';  // trim spaces
+
+        if (strcmp(label, TOKEN_LABEL) == 0) {
+            token_slot = slots[i];
+            found = 1;
+            break;
+        }
+    }
+
+    if (!found) {
+        fprintf(stderr, "Token '%s' not found!\n", TOKEN_LABEL);
+        C_Finalize(NULL);
+        return EXIT_FAILURE;
+    }
+
+    // Open a session
+    CK_SESSION_HANDLE session;
+    check_ck_r(C_OpenSession(token_slot, CKF_SERIAL_SESSION | CKF_RW_SESSION, NULL, NULL, &session),
+               "C_OpenSession failed");
+
+    // Login
+    check_ck_r(C_Login(session, CKU_USER, (CK_UTF8CHAR_PTR)USER_PIN, strlen(USER_PIN)),
+               "C_Login failed");
+
+    // List objects
+    CK_OBJECT_CLASS obj_class;
+    CK_ATTRIBUTE search_template[] = {
+        { CKA_CLASS, &obj_class, sizeof(obj_class) }
+    };
+
+    check_ck_r(C_FindObjectsInit(session, NULL, 0), "C_FindObjectsInit failed");
+
+    CK_OBJECT_HANDLE objects[64];
+    CK_ULONG obj_count;
+    check_ck_r(C_FindObjects(session, objects, 64, &obj_count), "C_FindObjects failed");
+
+    printf("Found %lu objects on token '%s':\n", obj_count, TOKEN_LABEL);
+    for (CK_ULONG j = 0; j < obj_count; j++) {
+        CK_ATTRIBUTE label_attr = { CKA_LABEL, NULL, 0 };
+        CK_ATTRIBUTE id_attr = { CKA_ID, NULL, 0 };
+
+        // First get lengths
+        (*(CK_RV(*)(CK_SESSION_HANDLE, CK_OBJECT_HANDLE, CK_ATTRIBUTE_PTR, CK_ULONG))dlsym(lib_handle, "C_GetAttributeValue"))(session, objects[j], &label_attr, 1);
+        (*(CK_RV(*)(CK_SESSION_HANDLE, CK_OBJECT_HANDLE, CK_ATTRIBUTE_PTR, CK_ULONG))dlsym(lib_handle, "C_GetAttributeValue"))(session, objects[j], &id_attr, 1);
+
+        char label[128] = {0};
+        unsigned char id[64] = {0};
+        label_attr.pValue = label;
+        label_attr.ulValueLen = sizeof(label);
+        id_attr.pValue = id;
+        id_attr.ulValueLen = sizeof(id);
+
+        (*(CK_RV(*)(CK_SESSION_HANDLE, CK_OBJECT_HANDLE, CK_ATTRIBUTE_PTR, CK_ULONG))dlsym(lib_handle, "C_GetAttributeValue"))(session, objects[j], &label_attr, 1);
+        (*(CK_RV(*)(CK_SESSION_HANDLE, CK_OBJECT_HANDLE, CK_ATTRIBUTE_PTR, CK_ULONG))dlsym(lib_handle, "C_GetAttributeValue"))(session, objects[j], &id_attr, 1);
+
+        printf("Object %lu: Label='%s', ID=", j+1, label);
+        for (unsigned long k = 0; k < id_attr.ulValueLen; k++)
+            printf("%02X", id[k]);
+        printf("\n");
+    }
+
+    check_ck_r(C_FindObjectsFinal(session), "C_FindObjectsFinal failed");
+
+    // Logout and close
+    check_ck_r(C_Logout(session), "C_Logout failed");
+    check_ck_r(C_CloseSession(session), "C_CloseSession failed");
+    check_ck_r(C_Finalize(NULL), "C_Finalize failed");
+
+    dlclose(lib_handle);
+    printf("Done.\n");
+    return 0;
+}
+
+
+===== ./.hsm_test.c.swp =====
+[skipped non-text file: application/octet-stream]
+
+===== ./hsm_work_inspection_report.txt =====
+# HSM work inspection report
+
+## File tree (excluding liboqs, openssl, softhsm, .git, build)
+.
+./certificate.pem
+./csr.pem
+./data.sha256
+./data.txt
+./demo_ciphertext.bin
+./demo_decrypted.txt
+./demo_hls_hsm.log
+./demo_hsm_work.sh
+./demo_msg.txt
+./demo_pkcs11d.log
+./demo_plaintext.txt
+./demo_random.bin
+./demo_random_readback.bin
+./demo_sig.bin
+./.gitignore
+./history.txt
+./hls-hsm
+./hls-hsm/CMakeLists.txt
+./hls-hsm/include
+./hls-hsm/include/hsm.h
+./hls-hsm/src
+./hls-hsm/src/hsm.cpp
+./hls-hsm/src/main.cpp
+./hls-hsm/src/pqc_demo.cpp
+./HSM_Firmware
+./HSM_Firmware/docs
+./HSM_Firmware/include
+./HSM_Firmware/include/crypto
+./HSM_Firmware/include/key_storage
+./HSM_Firmware/include/usb
+./HSM_Firmware/include/utils
+./HSM_Firmware/README.md
+./HSM_Firmware/src
+./HSM_Firmware/src/bootloader
+./HSM_Firmware/src/crypto
+./HSM_Firmware/src/key_storage
+./HSM_Firmware/src/main
+./HSM_Firmware/src/usb
+./HSM_Firmware/src/utils
+./hsm_sign_verify.sh
+./hsm_test
+./hsm_test.c
+./.hsm_test.c.swp
+./hsm_work_inspection_report.txt
+./liboqs_test
+./liboqs_test/CMakeFiles
+./liboqs_test/CMakeFiles/CMakeSystem.cmake
+./liboqs_test/CMakeLists.txt
+./liboqs_test/main.c
+./msg.txt
+./pkcs11-daemon
+./pkcs11-daemon/CMakeLists.txt
+./pkcs11-daemon/crypto.cpp
+./pkcs11-daemon/crypto.h
+./pkcs11-daemon/daemon.cpp
+./pkcs11-daemon/pkcs11.cpp
+./pkcs11-daemon/readme.txt
+./pkcs11-daemon/sd_import.cpp
+./pkcs11-daemon/sd_import.h
+./pkcs11-daemon/vault.cpp
+./pkcs11-daemon/vault.h
+./plaintext.txt
+./private_key.pem
+./pubkey.der
+./pubkey.pem
+./public_key.pem
+./random.bin
+./README.md
+./run_softhsm_demo.log
+./run_softhsm_demo.sh
+./sig.bin
+./signature.bin
+./sign_record.json
+./softhsm2.conf
+./softhsm2_demo.conf
+./store_record_in_softhsm.sh
+./vault.db
+
+## File contents
+
+===== ./certificate.pem =====
+-----BEGIN CERTIFICATE-----
+MIIDjTCCAnUCFHg7Yu+0tHAMS3mDmzyKOiaWgoNzMA0GCSqGSIb3DQEBCwUAMIGC
+MQswCQYDVQQGEwJQSzEPMA0GA1UECAwGRmVkcmFsMRIwEAYDVQQHDAlJc2xhbWFi
+YWQxDDAKBgNVBAoMA1FDTDEQMA4GA1UECwwHUUNMLU5FVDEQMA4GA1UEAwwHUS1E
+cml2ZTEcMBoGCSqGSIb3DQEJARYNdHRsQHFjLmNvbS5wazAeFw0yNjAyMTgwNjA1
+MTBaFw0yNjAzMjAwNjA1MTBaMIGCMQswCQYDVQQGEwJQSzEPMA0GA1UECAwGRmVk
+cmFsMRIwEAYDVQQHDAlJc2xhbWFiYWQxDDAKBgNVBAoMA1FDTDEQMA4GA1UECwwH
+UUNMLU5FVDEQMA4GA1UEAwwHUS1Ecml2ZTEcMBoGCSqGSIb3DQEJARYNdHRsQHFj
+LmNvbS5wazCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKqZr14Uoo9r
+LjOHHJW+GrSgtgECD0W0QUMUxHlwZitS3yqAWItWuoHloW+QqE0Q6eWkDz+PW9hB
+P51VOwGbhs6B1LYy9G5g+zdfvHaGERw0nM9Q/oaeyDYoFpcILagY/yQCgm0Vcdm8
+YhCn5gXiRDSTTYZ55A2CQSMDMHI2mPu/pDXsmnu7P9MOafBj+88nh8yiSjMCwggW
+Gc4QIehAvGPDKJoG1PzsjkHkNuIJjltlQ/iQXs6LkKmxN5jaSmuhCi1QE6KnUHYl
+0kWvevnum6MCLd98iI+N7/CxySNuEDOXAf35+0cQlNG0dHnUfvj2G+GhIzGvmpaN
+nlp8zzQpoW0CAwEAATANBgkqhkiG9w0BAQsFAAOCAQEASsuczxcJe3AmcyBQLWTS
+MqZUeF/V5uQtMABlfIoC2j0WJt07ysoSfBS/NyxziWShp5IWYrXN2IMCxsTQ6Z6F
+x18uEgHjnAre0n509QU/NnKKaWr93S8nTDkMeXsmthTrTXU1nTAUjQTyJaqXTWb1
+YOklxH2FMKNMOPqcQkY+42IjaV6fHxWR++yjN/Q1iNMCgO4vfxWdFbFICoOE6pKk
+LUFmN3YMUOrbf2Axc699Nsyxnbh2uT0baesdkModOByy+WQW+48Pu8E2eb4O6BoZ
+JfwPwRHhwUZWztkhvwcCfGMjtm7Os+yaq1Jo5S3eu4jvTKbQDVws+o91emJKzNVj
+1A==
+-----END CERTIFICATE-----
+
+===== ./csr.pem =====
+-----BEGIN CERTIFICATE REQUEST-----
+MIIC8jCCAdoCAQAwgYIxCzAJBgNVBAYTAlBLMQ8wDQYDVQQIDAZGZWRyYWwxEjAQ
+BgNVBAcMCUlzbGFtYWJhZDEMMAoGA1UECgwDUUNMMRAwDgYDVQQLDAdRQ0wtTkVU
+MRAwDgYDVQQDDAdRLURyaXZlMRwwGgYJKoZIhvcNAQkBFg10dGxAcWMuY29tLnBr
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqpmvXhSij2suM4cclb4a
+tKC2AQIPRbRBQxTEeXBmK1LfKoBYi1a6geWhb5CoTRDp5aQPP49b2EE/nVU7AZuG
+zoHUtjL0bmD7N1+8doYRHDScz1D+hp7INigWlwgtqBj/JAKCbRVx2bxiEKfmBeJE
+NJNNhnnkDYJBIwMwcjaY+7+kNeyae7s/0w5p8GP7zyeHzKJKMwLCCBYZzhAh6EC8
+Y8MomgbU/OyOQeQ24gmOW2VD+JBezouQqbE3mNpKa6EKLVAToqdQdiXSRa96+e6b
+owIt33yIj43v8LHJI24QM5cB/fn7RxCU0bR0edR++PYb4aEjMa+alo2eWnzPNCmh
+bQIDAQABoCowEQYJKoZIhvcNAQkCMQQMAlFDMBUGCSqGSIb3DQEJBzEIDAYxMjM0
+NTYwDQYJKoZIhvcNAQELBQADggEBAAAtJsR7Dm+HPt5u4OcOAQuT9E/U6zWV9uEx
+uwpa4cEwpwwzHXWK/wn8iFT7pnk/4RBFeq44szhnP1d5rneYsOpnmcRBskb/MD50
+IB8hDpEN6YpbwC5OxA9NH/PTA1bF3zRlN2/LYRjOq0oNBR9Y50wwSTZN/IgM62dE
+NqPlN7JTfqCLv/zGQygHqhGTGidKWMeR+IWNbJQFfVq9a2z9SKMOtTJEJ84J4kvD
+1ZgM28EaIffcg+iBgLdUWaKbKPzV2SFSFVmoEmjUhNG65TGFfRlqoLhCPES+CTcd
+GyXaBgKqMdcUExVdKcT7sJgEplOqOGPm3gAa+reaXWa9Rqk7ya8=
+-----END CERTIFICATE REQUEST-----
+
+===== ./data.sha256 =====
+SHA2-256(data.txt)= 7c9dad40ceb8389fcd617964b6ea5168d9ee56ba64fd018d545939503e7711c4
+
+===== ./data.txt =====
+HSM firmware simulation test
+
+===== ./demo_ciphertext.bin =====
+[skipped non-text file: application/octet-stream]
+
+===== ./demo_decrypted.txt =====
+Hello PKCS11 via AES key in SoftHSM
+
+===== ./demo_hls_hsm.log =====
+HSM initialized
+Retrieved key:  with size 256 bytes
+Random bytes: 22 39 52 1d e2 98 e2 ec 1f 8f f7 e7 42 f4 34 69 31 1a 8d c2 3c 9f 93 d9 49 5c 75 6b 37 9f 6b b2 b 78 ad e9 2e 6b d5 3b 5d 40 53 31 d2 f4 88 4e d6 d3 62 99 dd 1a cd 7f 7f 50 ff 35 47 7c 97 2f 
+
+===== ./demo_hsm_work.sh =====
+#!/usr/bin/env bash
+set -euo pipefail
+
+WORK="$HOME/HSM work"
+TOY_BUILD="$WORK/pkcs11-daemon/build"
+HLS_BUILD="$WORK/hls-hsm/build"
+
+TOY_DAEMON="$TOY_BUILD/pkcs11d"
+TOY_MODULE="$TOY_BUILD/libpkcs11lib.so"
+HLS_BIN="$HLS_BUILD/hls_hsm"
+
+SOFT_MODULE="/usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so"
+SOFTHSM2_CONF_FILE="$WORK/softhsm2_demo.conf"
+SOFTHSM_TOKENS_DIR="$WORK/softhsm-tokens-demo"
+
+MSG_FILE="$WORK/demo_msg.txt"
+PLAINTEXT_FILE="$WORK/demo_plaintext.txt"
+SIG_FILE="$WORK/demo_sig.bin"
+CIPHERTEXT_FILE="$WORK/demo_ciphertext.bin"
+DECRYPTED_FILE="$WORK/demo_decrypted.txt"
+RANDOM_FILE="$WORK/demo_random.bin"
+READBACK_FILE="$WORK/demo_random_readback.bin"
+DAEMON_LOG="$WORK/demo_pkcs11d.log"
+HLS_LOG="$WORK/demo_hls_hsm.log"
+
+IV="00000000000000000000000000000000"
+
+section() {
+  printf '\n===== %s =====\n' "$1"
+}
+
+need() {
+  command -v "$1" >/dev/null 2>&1 || { echo "Missing command: $1"; exit 1; }
+}
+
+need pkcs11-tool
+need softhsm2-util
+need timeout
+
+[ -x "$TOY_DAEMON" ] || { echo "Missing: $TOY_DAEMON"; exit 1; }
+[ -f "$TOY_MODULE" ] || { echo "Missing: $TOY_MODULE"; exit 1; }
+[ -x "$HLS_BIN" ] || { echo "Missing: $HLS_BIN"; exit 1; }
+[ -f "$SOFT_MODULE" ] || { echo "Missing: $SOFT_MODULE"; exit 1; }
+
+section "1) Toy PKCS#11 module"
+pkcs11-tool --module "$TOY_MODULE" -L
+
+section "2) Toy daemon"
+rm -f "$DAEMON_LOG"
+set +e
+timeout 3 "$TOY_DAEMON" > "$DAEMON_LOG" 2>&1
+RC=$?
+set -e
+if [ "$RC" -ne 0 ] && [ "$RC" -ne 124 ]; then
+  echo "pkcs11d failed"
+  cat "$DAEMON_LOG"
+  exit 1
+fi
+sed -n '1,20p' "$DAEMON_LOG"
+
+section "3) HLS-HSM standalone"
+"$HLS_BIN" | tee "$HLS_LOG"
+
+section "4) Fresh SoftHSM token"
+rm -rf "$SOFTHSM_TOKENS_DIR"
+mkdir -p "$SOFTHSM_TOKENS_DIR"
+chmod 700 "$SOFTHSM_TOKENS_DIR"
+printf 'directories.tokendir = %s\n' "$SOFTHSM_TOKENS_DIR" > "$SOFTHSM2_CONF_FILE"
+export SOFTHSM2_CONF="$SOFTHSM2_CONF_FILE"
+export PKCS11_MODULE_PATH="$SOFT_MODULE"
+
+softhsm2-util --init-token --free --label "dev-token" --so-pin 0000 --pin 1234
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -L
+
+section "5) Demo input files"
+printf 'hello from HSM\n' > "$MSG_FILE"
+printf 'Hello PKCS11 via AES key in SoftHSM\n' > "$PLAINTEXT_FILE"
+head -c 32 /dev/urandom > "$RANDOM_FILE"
+
+section "6) Generate RSA and AES keys in SoftHSM"
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --keypairgen --key-type RSA:2048 --id 01 --label HLS_RSA \
+  --usage-sign --usage-decrypt
+
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --keygen --key-type AES:32 --id 20 --label HLS_AES --usage-decrypt
+
+section "7) Store random bytes as SoftHSM data object"
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --write-object "$RANDOM_FILE" --type data \
+  --application-label HLS_RANDOM_DATA
+
+section "8) RSA sign and verify"
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --sign --mechanism SHA256-RSA-PKCS --type privkey --id 01 \
+  --input-file "$MSG_FILE" --output-file "$SIG_FILE"
+
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --verify --mechanism SHA256-RSA-PKCS --type pubkey --id 01 \
+  --input-file "$MSG_FILE" --signature-file "$SIG_FILE"
+
+section "9) AES encrypt and decrypt"
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --encrypt --mechanism AES-CBC-PAD --type secrkey --id 20 --iv "$IV" \
+
+===== ./liboqs_test/CMakeFiles/CMakeSystem.cmake =====
+set(CMAKE_HOST_SYSTEM "Linux-6.8.0-100-generic")
+set(CMAKE_HOST_SYSTEM_NAME "Linux")
+set(CMAKE_HOST_SYSTEM_VERSION "6.8.0-100-generic")
+set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
+
+
+
+set(CMAKE_SYSTEM "Linux-6.8.0-100-generic")
+set(CMAKE_SYSTEM_NAME "Linux")
+set(CMAKE_SYSTEM_VERSION "6.8.0-100-generic")
+set(CMAKE_SYSTEM_PROCESSOR "x86_64")
+
+set(CMAKE_CROSSCOMPILING "FALSE")
+
+set(CMAKE_SYSTEM_LOADED 1)
+
+===== ./liboqs_test/CMakeLists.txt =====
+cmake_minimum_required(VERSION 3.10)
+project(test_liboqs)
+
+find_package(liboqs REQUIRED)
+
+add_executable(test_liboqs main.c)
+target_link_libraries(test_liboqs liboqs)
+
+===== ./liboqs_test/main.c =====
+#include <oqs/oqs.h>
+#include <stdio.h>
+
+int main() {
+    printf("liboqs version: %s\n", OQS_VERSION);
+    return 0;
+}
+
+===== ./msg.txt =====
+hello from HSM
+
+===== ./pkcs11-daemon/CMakeLists.txt =====
+cmake_minimum_required(VERSION 3.10)
+project(pkcs11_daemon)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(OpenSSL REQUIRED)
+find_package(PkgConfig REQUIRED)
+find_package(SQLite3 REQUIRED)
+pkg_check_modules(LIBUDEV REQUIRED libudev)
+pkg_check_modules(P11KIT REQUIRED p11-kit-1)
+
+include_directories(
+    ${OPENSSL_INCLUDE_DIR}
+    ${LIBUDEV_INCLUDE_DIRS}
+    ${P11KIT_INCLUDE_DIRS}
+    ${SQLite3_INCLUDE_DIRS}
+    .
+)
+
+add_executable(pkcs11d
+    daemon.cpp
+    crypto.cpp
+    vault.cpp
+    sd_import.cpp
+)
+
+add_library(pkcs11lib SHARED
+    pkcs11.cpp
+)
+
+target_link_libraries(pkcs11d
+    ${OPENSSL_LIBRARIES}
+    ${LIBUDEV_LIBRARIES}
+    SQLite::SQLite3
+)
+
+target_link_libraries(pkcs11lib
+    ${OPENSSL_LIBRARIES}
+    ${P11KIT_LIBRARIES}
+    SQLite::SQLite3
+)
+
+target_compile_options(pkcs11d PRIVATE ${LIBUDEV_CFLAGS_OTHER})
+target_include_directories(pkcs11d PRIVATE ${LIBUDEV_INCLUDE_DIRS})
+
+target_compile_options(pkcs11lib PRIVATE ${P11KIT_CFLAGS_OTHER})
+target_include_directories(pkcs11lib PRIVATE
+    ${P11KIT_INCLUDE_DIRS}
+    .
+)
+
+===== ./pkcs11-daemon/crypto.cpp =====
+#include "crypto.h"
+#include <openssl/evp.h>
+#include <openssl/pem.h>
+#include <openssl/err.h>
+#include <memory>
+#include <iostream>
+#include <vector>
+
+std::string Crypto::generate_rsa() {
+    EVP_PKEY_CTX* ctx = EVP_PKEY_CTX_new_id(EVP_PKEY_RSA, nullptr);
+    if (!ctx) {
+        std::cerr << "EVP_PKEY_CTX_new_id failed\n";
+        return "";
+    }
+
+    if (EVP_PKEY_keygen_init(ctx) <= 0) {
+        std::cerr << "EVP_PKEY_keygen_init failed\n";
+        EVP_PKEY_CTX_free(ctx);
+        return "";
+    }
+
+    if (EVP_PKEY_CTX_set_rsa_keygen_bits(ctx, 2048) <= 0) {
+        std::cerr << "EVP_PKEY_CTX_set_rsa_keygen_bits failed\n";
+        EVP_PKEY_CTX_free(ctx);
+        return "";
+    }
+
+    EVP_PKEY* pkey = nullptr;
+    if (EVP_PKEY_keygen(ctx, &pkey) <= 0) {
+        std::cerr << "EVP_PKEY_keygen failed\n";
+        EVP_PKEY_CTX_free(ctx);
+        return "";
+    }
+
+    EVP_PKEY_CTX_free(ctx);
+
+    // Write private key to PEM string
+    BIO* bio = BIO_new(BIO_s_mem());
+    if (!PEM_write_bio_PrivateKey(bio, pkey, nullptr, nullptr, 0, nullptr, nullptr)) {
+        std::cerr << "PEM_write_bio_PrivateKey failed\n";
+        EVP_PKEY_free(pkey);
+        BIO_free(bio);
+        return "";
+    }
+
+    char* data;
+    long len = BIO_get_mem_data(bio, &data);
+    std::string pem(data, len);
+
+    EVP_PKEY_free(pkey);
+    BIO_free(bio);
+
+    return pem;
+}
+
+// TODO: implement pqc_generate() and other crypto functions
+
+std::string Crypto::pqc_generate() {
+    std::cerr << "pqc_generate() not implemented yet\n";
+    return "";
+}
+
+===== ./pkcs11-daemon/crypto.h =====
+#pragma once
+#include <string>
+
+class Crypto {
+
+public:
+    static std::string generate_rsa();
+    static std::string pqc_generate();
+};
+
+===== ./pkcs11-daemon/daemon.cpp =====
+#include <iostream>
+#include <thread>
+#include <chrono>
+#include "vault.h"
+#include "crypto.h"
+#include "sd_import.h"
+
+int main() {
+
+    std::cout << "Starting PKCS11 daemon\n";
+
+    Vault vault("vault.db");
+    vault.init();
+
+    SDImporter importer(vault);
+
+    std::thread sd_thread(
+        &SDImporter::watch_ports,
+        &importer);
+
+    std::string rsa =
+        Crypto::generate_rsa();
+
+    vault.store_key(
+        "default-rsa",
+        "rsa",
+        rsa);
+
+    std::string pq =
+        Crypto::pqc_generate();
+
+    vault.store_key(
+        "default-pq",
+        "dilithium",
+        pq);
+
+    std::cout << "Keys initialized\n";
+
+    while (true) {
+        std::cout << "daemon alive\n";
+        std::this_thread::sleep_for(std::chrono::seconds(10));
+    }
+}
+
+===== ./pkcs11-daemon/pkcs11.cpp =====
+#include <p11-kit/pkcs11.h>
+#include <cstring>
+
+namespace {
+CK_FUNCTION_LIST g_function_list;
+bool g_function_list_ready = false;
+
+void fill_padded(unsigned char *dst, std::size_t n, const char *src) {
+    std::memset(dst, ' ', n);
+    if (!src) return;
+    std::size_t len = std::strlen(src);
+    if (len > n) len = n;
+    std::memcpy(dst, src, len);
+}
+
+void init_function_list();
+}
+
+extern "C" {
+
+CK_RV C_Initialize(void *) {
+    return CKR_OK;
+}
+
+CK_RV C_Finalize(void *) {
+    return CKR_OK;
+}
+
+CK_RV C_GetInfo(CK_INFO_PTR info) {
+    if (!info) return CKR_ARGUMENTS_BAD;
+    std::memset(info, 0, sizeof(*info));
+    info->cryptokiVersion.major = 2;
+    info->cryptokiVersion.minor = 40;
+    info->libraryVersion.major = 0;
+    info->libraryVersion.minor = 1;
+    fill_padded(info->manufacturerID, sizeof(info->manufacturerID), "ToyVendor");
+    fill_padded(info->libraryDescription, sizeof(info->libraryDescription), "Toy PKCS11 Library");
+    return CKR_OK;
+}
+
+CK_RV C_GetSlotList(CK_BBOOL, CK_SLOT_ID_PTR pSlotList, CK_ULONG_PTR pulCount) {
+    if (!pulCount) return CKR_ARGUMENTS_BAD;
+
+    if (!pSlotList) {
+        *pulCount = 1;
+        return CKR_OK;
+    }
+
+    if (*pulCount < 1) {
+        *pulCount = 1;
+        return CKR_BUFFER_TOO_SMALL;
+    }
+
+    pSlotList[0] = 1;
+    *pulCount = 1;
+    return CKR_OK;
+}
+
+CK_RV C_GetSlotInfo(CK_SLOT_ID slotID, CK_SLOT_INFO_PTR info) {
+    if (!info) return CKR_ARGUMENTS_BAD;
+    if (slotID != 1) return CKR_SLOT_ID_INVALID;
+
+    std::memset(info, 0, sizeof(*info));
+    fill_padded(info->slotDescription, sizeof(info->slotDescription), "Toy Slot");
+    fill_padded(info->manufacturerID, sizeof(info->manufacturerID), "ToyVendor");
+    info->flags = CKF_TOKEN_PRESENT;
+    info->hardwareVersion.major = 0;
+    info->hardwareVersion.minor = 1;
+    info->firmwareVersion.major = 0;
+    info->firmwareVersion.minor = 1;
+    return CKR_OK;
+}
+
+CK_RV C_GetTokenInfo(CK_SLOT_ID slotID, CK_TOKEN_INFO_PTR info) {
+    if (!info) return CKR_ARGUMENTS_BAD;
+    if (slotID != 1) return CKR_SLOT_ID_INVALID;
+
+    std::memset(info, 0, sizeof(*info));
+    fill_padded(info->label, sizeof(info->label), "ToyToken");
+    fill_padded(info->manufacturerID, sizeof(info->manufacturerID), "ToyVendor");
+    fill_padded(info->model, sizeof(info->model), "PKCS11SIM");
+    fill_padded(info->serialNumber, sizeof(info->serialNumber), "00000001");
+    info->flags = CKF_TOKEN_INITIALIZED | CKF_RNG;
+    info->ulMaxSessionCount = CK_EFFECTIVELY_INFINITE;
+    info->ulSessionCount = 0;
+    info->ulMaxRwSessionCount = CK_EFFECTIVELY_INFINITE;
+    info->ulRwSessionCount = 0;
+    info->ulMaxPinLen = 255;
+    info->ulMinPinLen = 4;
+    info->ulTotalPublicMemory = CK_UNAVAILABLE_INFORMATION;
+    info->ulFreePublicMemory = CK_UNAVAILABLE_INFORMATION;
+    info->ulTotalPrivateMemory = CK_UNAVAILABLE_INFORMATION;
+    info->ulFreePrivateMemory = CK_UNAVAILABLE_INFORMATION;
+    info->hardwareVersion.major = 0;
+    info->hardwareVersion.minor = 1;
+    info->firmwareVersion.major = 0;
+    info->firmwareVersion.minor = 1;
+    return CKR_OK;
+}
+
+CK_RV C_OpenSession(CK_SLOT_ID slotID, CK_FLAGS, CK_VOID_PTR, CK_NOTIFY, CK_SESSION_HANDLE_PTR phSession) {
+    if (!phSession) return CKR_ARGUMENTS_BAD;
+    if (slotID != 1) return CKR_SLOT_ID_INVALID;
+    *phSession = 1;
+    return CKR_OK;
+}
+
+CK_RV C_CloseSession(CK_SESSION_HANDLE) {
+    return CKR_OK;
+}
+
+CK_RV C_CloseAllSessions(CK_SLOT_ID slotID) {
+    if (slotID != 1) return CKR_SLOT_ID_INVALID;
+    return CKR_OK;
+}
+
+CK_RV C_GetSessionInfo(CK_SESSION_HANDLE hSession, CK_SESSION_INFO_PTR pInfo) {
+    if (!pInfo) return CKR_ARGUMENTS_BAD;
+    if (hSession != 1) return CKR_SESSION_HANDLE_INVALID;
+
+    std::memset(pInfo, 0, sizeof(*pInfo));
+    pInfo->slotID = 1;
+    pInfo->state = CKS_RO_PUBLIC_SESSION;
+    pInfo->flags = CKF_SERIAL_SESSION;
+    pInfo->ulDeviceError = 0;
+    return CKR_OK;
+}
+
+CK_RV C_GetFunctionList(CK_FUNCTION_LIST_PTR_PTR ppFunctionList) {
+    if (!ppFunctionList) return CKR_ARGUMENTS_BAD;
+    init_function_list();
+    *ppFunctionList = &g_function_list;
+    return CKR_OK;
+}
+
+} // extern "C"
+
+namespace {
+void init_function_list() {
+    if (g_function_list_ready) return;
+
+    std::memset(&g_function_list, 0, sizeof(g_function_list));
+    g_function_list.version.major = 2;
+    g_function_list.version.minor = 40;
+
+    g_function_list.C_Initialize = C_Initialize;
+    g_function_list.C_Finalize = C_Finalize;
+    g_function_list.C_GetInfo = C_GetInfo;
+    g_function_list.C_GetFunctionList = C_GetFunctionList;
+    g_function_list.C_GetSlotList = C_GetSlotList;
+    g_function_list.C_GetSlotInfo = C_GetSlotInfo;
+    g_function_list.C_GetTokenInfo = C_GetTokenInfo;
+    g_function_list.C_OpenSession = C_OpenSession;
+    g_function_list.C_CloseSession = C_CloseSession;
+    g_function_list.C_CloseAllSessions = C_CloseAllSessions;
+    g_function_list.C_GetSessionInfo = C_GetSessionInfo;
+
+    g_function_list_ready = true;
+}
+}
+
+===== ./pkcs11-daemon/readme.txt =====
+The daemon exposes a cryptographic service that manages a hardware-backed vault abstraction. 
+Keys can be generated internally or imported through removable SD media. 
+The vault stores metadata and key blobs in a secure database. 
+The crypto engine supports both classical algorithms like RSA 
+and post-quantum algorithms like Dilithium using the Open Quantum Safe library, 
+allowing backward compatibility while enabling PQC readiness.
+
+so what we Now have
+
+-A working daemon with:
+ --key vault
+ --RSA key generation
+ --PQC key generation
+ --SD card key import
+ --continuous service loop
+
+===== ./pkcs11-daemon/sd_import.cpp =====
+#include "sd_import.h"
+#include <iostream>
+#include <filesystem>
+#include <thread>
+#include <chrono>
+
+// Constructor definition
+SDImporter::SDImporter(Vault& vault_ref) : vault(vault_ref) {
+    std::cout << "SDImporter initialized with vault\n";
+}
+
+// Watch ports safely
+void SDImporter::watch_ports() {
+    while (true) {
+        try {
+            for (int port = 0; port < 3; port++) {
+                std::string path = "/media/sdcard" + std::to_string(port);
+                if (std::filesystem::exists(path)) {
+                    std::cout << "SD card detected at " << path << "\n";
+                    // TODO: safely import keys from SD card to vault
+                }
+            }
+        } catch (std::filesystem::filesystem_error& e) {
+            std::cerr << "Filesystem error: " << e.what() << "\n";
+        } catch (std::exception& e) {
+            std::cerr << "SD watcher exception: " << e.what() << "\n";
+        }
+        std::this_thread::sleep_for(std::chrono::seconds(10));
+    }
+}
+
+===== ./pkcs11-daemon/sd_import.h =====
+#pragma once
+#include "vault.h"
+#include <string>
+
+class SDImporter {
+public:
+    explicit SDImporter(Vault& vault_ref);
+    void watch_ports();
+
+private:
+    Vault& vault;
+};
+
+===== ./pkcs11-daemon/vault.cpp =====
+#include "vault.h"
+#include <iostream>
+
+Vault::Vault(const std::string& path) {
+    sqlite3_open(path.c_str(), &db);
+}
+
+void Vault::init() {
+
+    const char* sql =
+        "CREATE TABLE IF NOT EXISTS keys("
+        "label TEXT PRIMARY KEY,"
+        "type TEXT,"
+        "data TEXT);";
+
+    sqlite3_exec(db, sql, 0, 0, 0);
+}
+
+void Vault::store_key(
+    const std::string& label,
+    const std::string& type,
+    const std::string& data) {
+
+    std::string sql =
+        "INSERT OR REPLACE INTO keys VALUES('"
+        + label + "','" + type + "','" + data + "');";
+
+    sqlite3_exec(db, sql.c_str(), 0, 0, 0);
+}
+
+std::string Vault::get_key(const std::string& label) {
+
+    std::string result;
+    sqlite3_stmt* stmt;
+
+    std::string sql =
+        "SELECT data FROM keys WHERE label='" + label + "';";
+
+    sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, 0);
+
+    if (sqlite3_step(stmt) == SQLITE_ROW)
+        result = (char*)sqlite3_column_text(stmt, 0);
+
+    sqlite3_finalize(stmt);
+
+    return result;
+}
+
+===== ./pkcs11-daemon/vault.h =====
+#pragma once
+#include <string>
+#include <sqlite3.h>
+
+class Vault {
+private:
+    sqlite3* db;
+
+public:
+    Vault(const std::string& path);
+    void init();
+    void store_key(
+        const std::string& label,
+        const std::string& type,
+        const std::string& data);
+
+    std::string get_key(const std::string& label);
+};
+
+===== ./plaintext.txt =====
+Hello PKCS11
+
+===== ./private_key.pem =====
+-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCqma9eFKKPay4z
+hxyVvhq0oLYBAg9FtEFDFMR5cGYrUt8qgFiLVrqB5aFvkKhNEOnlpA8/j1vYQT+d
+VTsBm4bOgdS2MvRuYPs3X7x2hhEcNJzPUP6Gnsg2KBaXCC2oGP8kAoJtFXHZvGIQ
+p+YF4kQ0k02GeeQNgkEjAzByNpj7v6Q17Jp7uz/TDmnwY/vPJ4fMokozAsIIFhnO
+ECHoQLxjwyiaBtT87I5B5DbiCY5bZUP4kF7Oi5CpsTeY2kproQotUBOip1B2JdJF
+r3r57pujAi3ffIiPje/wsckjbhAzlwH9+ftHEJTRtHR51H749hvhoSMxr5qWjZ5a
+fM80KaFtAgMBAAECggEAGsjlVTaVLUJNLy7j6Ii/5aMj4DWkEzQRWQheLpjcmam5
+uxEKldnoj3NvrLYADpV8u57N/BM0ftgDtl6G1KJIAI02yeJnKRtV5eREkTFMZ2rF
+QfF7/MPaOFKD9XOFw5IlINC6DIlk5iQjG21Y+oyDW+PStK3Xhd1w/5/FD/GNhFzY
++ygaN1hOOGVkTzZHWX1jfbw7kemw0n4eCWzK0LCED+AKfO0D8CqdtUZ7LUjs8Zlx
+oCqhbX4mo5bWWYgLCaTafwD6rXlhGfcL+Md/7sZqSUovgJdqRswdytmFOZIGMvQd
+2a+UgL2PL2c5bOQGkE9tzIukbEkprAdszayqJKH7AQKBgQDj7AAOtS3lUg8OTMfc
+vRb0G9jEA42FJRMlmKQwJ5ZGEMpEXDyKRiBXVx8JXsCSGNm0/hcUhpIda6Uuo8v/
+Cvc7SwzWtePliTddzJioCTYfEmza62/jm3rSpmv9kCcQNtACz4CoGL08fy40bmj1
+a/BtG4A1RhzhKCFawXwO4tDlgQKBgQC/ne2oA/E+eMv9F/H+Att4uvUbGXICk5jQ
+9yoU66mJD660H/Jmv72ZzeSAp364TOKuhe5FtnA/YxTBwTWKXlCcXnzeDBK1HulB
+tdJACyWOy+jjRhR1ufVRlpIslED/SpSx4pesaqUaBkICY8gafehvEe0bDcfX92iG
+GUVsgMOp7QKBgHfDeeBAmeZHMTwdYmP+REJvI38UMtgEvEPkKlpXYuJcTjyPjwxF
+fxcF43wj+uKKBlPRtEUH1V16Q+j3DulsVK8mZ4+nMiJZ8Orr6Edb18GKCAMc9cVO
+3MI1yscJaU1ez/y6Fmu93Coe1iOc5LAZUNO0QLE9r00sriInS03zJzuBAoGBAKf/
+m+UqB7IBEMAG5XkSIkAYkls/FPFjXKEhgriy4YI0yLROKiWhyGb32HZf479MUZY4
+AG8IhCNfCEzTy9BT3pMqWIoJxcEcp9+fvQW/gB9Rcg8JW1jYQFhXDjOdi9sIFZRc
+mSRmn/hQMkGMIF3xs/7llZ+ZlnQoC3E+6No3jtUFAoGAcP/rk6BHc1fgEWE2PCUx
+V4D38G6kaK0j8hcW3PPhxxdPIh1G/ylgNorvIulpHZvYecUIeHs58kBArwCYqWAL
+2K/1cOVdEsVkLjtASBFDhRDLCxfvCTsD3xD++mZlBTX3EH+VxfmAf2j6Pog8ZHqk
+eqVXch09gfDJT+yYNOEMnqM=
+-----END PRIVATE KEY-----
+
+===== ./pubkey.der =====
+[skipped non-text file: application/octet-stream]
+
+===== ./pubkey.pem =====
+-----BEGIN PUBLIC KEY-----
+MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE/f7JKSqOaHVXwoX+Mbhn64P7JhFN
+3+pdmVyDSQLV10svh4RWS1ibZRCjRv7o4e1sLJWqA2z5ez4MXurWAvk5yg==
+-----END PUBLIC KEY-----
+
+===== ./public_key.pem =====
+[skipped non-text file: application/octet-stream]
+
+===== ./random.bin =====
+[skipped non-text file: application/octet-stream]
+
+===== ./README.md =====
+# HSM Work
+
+Local HSM R&D workspace for hls-hsm, pkcs11-daemon, SoftHSM validation, and PQC experiments.
+
+===== ./run_softhsm_demo.log =====
+Slot 0 has a free/uninitialized token.
+The token has been initialized and is reassigned to slot 1057570903
+Key pair generated:
+Private Key Object; RSA 
+  label:      HLS_RSA
+  ID:         01
+  Usage:      decrypt, sign, signRecover, unwrap
+  Access:     sensitive, always sensitive, never extractable, local
+Public Key Object; RSA 2048 bits
+  label:      HLS_RSA
+  ID:         01
+  Usage:      encrypt, verify, verifyRecover, wrap
+  Access:     local
+warning: PKCS11 function C_GetAttributeValue(VALUE) failed: rv = CKR_ATTRIBUTE_SENSITIVE (0x11)
+
+warning: PKCS11 function C_GetAttributeValue(VERIFY_RECOVER) failed: rv = CKR_ATTRIBUTE_TYPE_INVALID (0x12)
+
+Key generated:
+Secret Key Object; AES length 32
+  label:      HLS_AES
+  ID:         20
+  Usage:      encrypt, decrypt, sign, verify, wrap, unwrap
+  Access:     never extractable, local
+Created Data Object:
+Data object 2
+  label:          'HLS_RANDOM_DATA'
+  application:    ''
+  app_id:         <empty>
+  flags:           modifiable
+Using signature algorithm SHA256-RSA-PKCS
+Using signature algorithm SHA256-RSA-PKCS
+Signature is valid
+error: Secret key not found
+Aborting.
+
+===== ./run_softhsm_demo.sh =====
+#!/usr/bin/env bash
+set -euo pipefail
+
+export SOFTHSM2_CONF="$HOME/HSM work/softhsm2.conf"
+export PKCS11_MODULE_PATH=/usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so
+
+rm -rf "$HOME/HSM work/softhsm-tokens"
+mkdir -p "$HOME/HSM work/softhsm-tokens"
+chmod 700 "$HOME/HSM work/softhsm-tokens"
+printf 'directories.tokendir = %s\n' "$HOME/HSM work/softhsm-tokens" > "$SOFTHSM2_CONF"
+
+softhsm2-util --init-token --free --label "dev-token" --so-pin 0000 --pin 1234
+
+printf 'hello from HSM\n' > "$HOME/HSM work/msg.txt"
+printf 'Hello PKCS11\n' > "$HOME/HSM work/plaintext.txt"
+head -c 32 /dev/urandom > "$HOME/HSM work/random.bin"
+
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --keypairgen --key-type RSA:2048 --id 01 --label HLS_RSA \
+  --usage-sign --usage-decrypt
+
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --keygen --key-type AES:32 --id 20 --label HLS_AES --usage-decrypt
+
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --write-object "$HOME/HSM work/random.bin" --type data --id 30 --label HLS_RANDOM_DATA
+
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --sign --mechanism SHA256-RSA-PKCS --type privkey --id 01 \
+  --input-file "$HOME/HSM work/msg.txt" --output-file "$HOME/HSM work/sig.bin"
+
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --verify --mechanism SHA256-RSA-PKCS --type pubkey --id 01 \
+  --input-file "$HOME/HSM work/msg.txt" --signature-file "$HOME/HSM work/sig.bin"
+
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --encrypt --mechanism RSA-PKCS --type pubkey --id 01 \
+  --input-file "$HOME/HSM work/plaintext.txt" --output-file "$HOME/HSM work/ciphertext.bin"
+
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 \
+  --decrypt --mechanism RSA-PKCS --type privkey --id 01 \
+  --input-file "$HOME/HSM work/ciphertext.bin" --output-file "$HOME/HSM work/decrypted.txt"
+
+echo "===== DECRYPTED TEXT ====="
+cat "$HOME/HSM work/decrypted.txt"
+echo
+echo "===== OBJECTS IN SOFTHSM ====="
+pkcs11-tool --module "$PKCS11_MODULE_PATH" --token-label "dev-token" -l --pin 1234 -O
+
+===== ./sig.bin =====
+[skipped non-text file: application/octet-stream]
+
+===== ./signature.bin =====
+[skipped non-text file: application/octet-stream]
+
+===== ./sign_record.json =====
+{
+  "op_id": "sign-0001",
+  "ts": "2026-03-26T07:50:00Z",
+  "op": "sign",
+  "key_label": "HLS_RSA",
+  "input_file": "msg.txt",
+  "output_file": "sig.bin",
+  "status": "ok"
+}
+
+===== ./softhsm2.conf =====
+directories.tokendir = /home/qcttl1/HSM work/softhsm-tokens
+
+===== ./softhsm2_demo.conf =====
+directories.tokendir = /home/qcttl1/HSM work/softhsm-tokens-demo
+
+===== ./store_record_in_softhsm.sh =====
+#!/usr/bin/env bash
+set -euo pipefail
+
+export SOFTHSM2_CONF="$HOME/HSM work/softhsm2.conf"
+export PKCS11_MODULE_PATH=/usr/lib/x86_64-linux-gnu/softhsm/libsofthsm2.so
+
+LABEL="${1:?usage: store_record_in_softhsm.sh <label> <file> [id] }"
+FILE="${2:?usage: store_record_in_softhsm.sh <label> <file> [id] }"
+ID="${3:-$(openssl rand -hex 4)}"
+
+pkcs11-tool --module "$PKCS11_MODULE_PATH" \
+  --token-label "dev-token" -l --pin 1234 \
+  --write-object "$FILE" --type data --id "$ID" --label "$LABEL"
+
+===== ./vault.db =====
+[skipped non-text file: application/vnd.sqlite3]
